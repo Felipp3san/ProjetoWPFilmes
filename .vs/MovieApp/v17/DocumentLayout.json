@@ -1,0 +1,101 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\f-eli\\OneDrive\\\u00C1rea de Trabalho\\MovieApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C02DD725-5731-4874-89F9-C066B901FC5E}|MovieApp.csproj|c:\\users\\f-eli\\onedrive\\\u00E1rea de trabalho\\movieapp\\theme\\closebuttontheme.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C02DD725-5731-4874-89F9-C066B901FC5E}|MovieApp.csproj|solutionrelative:theme\\closebuttontheme.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C02DD725-5731-4874-89F9-C066B901FC5E}|MovieApp.csproj|c:\\users\\f-eli\\onedrive\\\u00E1rea de trabalho\\movieapp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C02DD725-5731-4874-89F9-C066B901FC5E}|MovieApp.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C02DD725-5731-4874-89F9-C066B901FC5E}|MovieApp.csproj|c:\\users\\f-eli\\onedrive\\\u00E1rea de trabalho\\movieapp\\theme\\textboxtheme.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C02DD725-5731-4874-89F9-C066B901FC5E}|MovieApp.csproj|solutionrelative:theme\\textboxtheme.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C02DD725-5731-4874-89F9-C066B901FC5E}|MovieApp.csproj|c:\\users\\f-eli\\onedrive\\\u00E1rea de trabalho\\movieapp\\theme\\menubuttontheme.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C02DD725-5731-4874-89F9-C066B901FC5E}|MovieApp.csproj|solutionrelative:theme\\menubuttontheme.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C02DD725-5731-4874-89F9-C066B901FC5E}|MovieApp.csproj|c:\\users\\f-eli\\onedrive\\\u00E1rea de trabalho\\movieapp\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C02DD725-5731-4874-89F9-C066B901FC5E}|MovieApp.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CloseButtonTheme.xaml",
+              "DocumentMoniker": "C:\\Users\\f-eli\\OneDrive\\\u00C1rea de Trabalho\\MovieApp\\Theme\\CloseButtonTheme.xaml",
+              "RelativeDocumentMoniker": "Theme\\CloseButtonTheme.xaml",
+              "ToolTip": "C:\\Users\\f-eli\\OneDrive\\\u00C1rea de Trabalho\\MovieApp\\Theme\\CloseButtonTheme.xaml",
+              "RelativeToolTip": "Theme\\CloseButtonTheme.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-04T22:04:16.669Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MenuButtonTheme.xaml",
+              "DocumentMoniker": "C:\\Users\\f-eli\\OneDrive\\\u00C1rea de Trabalho\\MovieApp\\Theme\\MenuButtonTheme.xaml",
+              "RelativeDocumentMoniker": "Theme\\MenuButtonTheme.xaml",
+              "ToolTip": "C:\\Users\\f-eli\\OneDrive\\\u00C1rea de Trabalho\\MovieApp\\Theme\\MenuButtonTheme.xaml",
+              "RelativeToolTip": "Theme\\MenuButtonTheme.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-04T21:56:22.16Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TextBoxTheme.xaml",
+              "DocumentMoniker": "C:\\Users\\f-eli\\OneDrive\\\u00C1rea de Trabalho\\MovieApp\\Theme\\TextBoxTheme.xaml",
+              "RelativeDocumentMoniker": "Theme\\TextBoxTheme.xaml",
+              "ToolTip": "C:\\Users\\f-eli\\OneDrive\\\u00C1rea de Trabalho\\MovieApp\\Theme\\TextBoxTheme.xaml",
+              "RelativeToolTip": "Theme\\TextBoxTheme.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-04T21:50:12.075Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\f-eli\\OneDrive\\\u00C1rea de Trabalho\\MovieApp\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "MainWindow.xaml",
+              "ToolTip": "C:\\Users\\f-eli\\OneDrive\\\u00C1rea de Trabalho\\MovieApp\\MainWindow.xaml",
+              "RelativeToolTip": "MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-04T21:25:05.129Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\f-eli\\OneDrive\\\u00C1rea de Trabalho\\MovieApp\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\f-eli\\OneDrive\\\u00C1rea de Trabalho\\MovieApp\\MainWindow.xaml.cs",
+              "RelativeToolTip": "MainWindow.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-04T20:53:41.965Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

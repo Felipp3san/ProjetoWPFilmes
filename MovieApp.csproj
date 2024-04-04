@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Fonts\Dosis.ttf" />
+    <None Remove="Images\dune.jpg" />
+    <None Remove="Images\filme.jpg" />
+    <None Remove="Images\matadorAluguel.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="MVVM\Model\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\Dosis.ttf" />
+    <Resource Include="Images\dune.jpg" />
+    <Resource Include="Images\filme.jpg" />
+    <Resource Include="Images\matadorAluguel.jpg" />
+  </ItemGroup>
+
+</Project>
