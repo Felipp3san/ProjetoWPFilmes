@@ -4,12 +4,16 @@
              xmlns:local="clr-namespace:MovieApp"
              xmlns:viewModel="clr-namespace:MovieApp.MVVM.ViewModel"
              xmlns:view="clr-namespace:MovieApp.MVVM.View"
+             xmlns:topControls="clr-namespace:MovieApp.MVVM.View.TopControls"
              StartupUri="MainWindow.xaml">
+
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Theme/MenuButtonTheme.xaml"/>
                 <ResourceDictionary Source="Theme/TextBoxTheme.xaml"/>
+                <ResourceDictionary Source="Theme/CloseButtonTheme.xaml"/>
+                <ResourceDictionary Source="Theme/ButtonTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
@@ -19,7 +23,15 @@
             <DataTemplate DataType="{x:Type viewModel:PopularViewModel}">
                 <view:PopularView/>
             </DataTemplate>
-            
+
+            <DataTemplate DataType="{x:Type viewModel:GenreViewModel}">
+                <view:GenreView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:SearchViewModel}">
+                <view:SearchView/>
+            </DataTemplate>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

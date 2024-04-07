@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MovieApp"
         xmlns:viewModel="clr-namespace:MovieApp.MVVM.ViewModel"
         mc:Ignorable="d"
-        Height="760" Width="950"
+        Height="980" Width="1300"
         WindowStyle="None"
         ResizeMode="NoResize"
         Background="Transparent"
@@ -25,52 +25,53 @@
             <DropShadowEffect BlurRadius="15" Direction="-90"
                           RenderingBias="Quality" ShadowDepth="2"/>
         </Border.Effect>
-
         <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="75"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            
-            <TextBlock Text="WPFilmes" FontSize="30" FontWeight="Bold"
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Text="WPFilmes" FontSize="30" FontWeight="Bold"
                        Foreground="#FFFFFF" VerticalAlignment="Center" 
                        HorizontalAlignment="Center"/>
+                <StackPanel Grid.Row="1">
+                    <RadioButton Command="{Binding HomeViewCommand}"
+                                 Content="Home" Height="50" FontSize="20"
+                                 Foreground="#FFFFFF" Style="{StaticResource MenuButtonTheme}"
+                                 IsChecked="True"/>
 
-            <StackPanel Grid.Row="1">
+                    <RadioButton Command="{Binding PopularViewCommand}"
+                                 Content="Em alta" Height="50" FontSize="20"
+                                 Foreground="#FFFFFF" Style="{StaticResource MenuButtonTheme}"/>
 
-                <RadioButton Command="{Binding HomeViewCommand}"
-                             Content="Home" Height="50" FontSize="20"
-                             Foreground="#FFFFFF" Style="{StaticResource MenuButtonTheme}"
-                             IsChecked="True"/>
+                    <RadioButton Command="{Binding GenreViewCommand}"
+                                 Content="Por genero" Height="50" FontSize="20"
+                                 Foreground="#FFFFFF" Style="{StaticResource MenuButtonTheme}"/>
 
-                <RadioButton Command="{Binding PopularViewCommand}"
-                             Content="Em alta" Height="50" FontSize="20"
-                             Foreground="#FFFFFF" Style="{StaticResource MenuButtonTheme}"/>
-
-                <RadioButton Content="Por genero" Height="50" FontSize="20"
-                             Foreground="#FFFFFF" Style="{StaticResource MenuButtonTheme}"/>
-
-                <RadioButton Content="Pesquisar" Height="50" FontSize="20"
-                             Foreground="#FFFFFF" Style="{StaticResource MenuButtonTheme}"/>
-            </StackPanel>
-
-            <Grid Grid.Column="1">
-                <TextBox FontSize="20" Margin="5" Style="{StaticResource TextBoxTheme}"
-                         VerticalContentAlignment="Center" HorizontalAlignment="Left"/>
-
-                <Button Command="{Binding CloseButtonCommand}"
-                        Width="40" Height="40" Background="Transparent"
-                        Content="X" FontSize="25" Foreground="#FFFFFF" BorderThickness="0"
-                        HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                    <RadioButton Command="{Binding SearchViewCommand}"
+                                 Content="Pesquisar" Height="50" FontSize="20"
+                                 Foreground="#FFFFFF" Style="{StaticResource MenuButtonTheme}"/>
+                </StackPanel>
             </Grid>
 
-            <ContentControl Grid.Row="1" Grid.Column="1" Margin="10"
-                            Content="{Binding CurrentView}"/>
+            <Grid Grid.Column="1">
+
+                <Border Background="#222222" CornerRadius="0,10,10,0"/>
+
+                <Button Command="{Binding CloseButtonCommand}" Style="{StaticResource CloseButtonTheme}"
+                        Width="30" Height="30" 
+                        Content="X" FontSize="25" Foreground="#FFFFFF"
+                        HorizontalAlignment="Right" VerticalAlignment="Top"/>
+
+                <ContentControl Grid.Column="1" Margin="20"
+                                Content="{Binding CurrentView}"/>
+            </Grid>
         </Grid>
     </Border>
 </Window>

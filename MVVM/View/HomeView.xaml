@@ -4,83 +4,64 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MovieApp.MVVM.View"
-             mc:Ignorable="d" 
-             d:DesignHeight="565" d:DesignWidth="630">
+             xmlns:topControls="clr-namespace:MovieApp.MVVM.View.TopControls"
+             xmlns:viewModel="clr-namespace:MovieApp.MVVM.ViewModel"
+             mc:Ignorable="d"             
+             FontFamily="../../Fonts/#Dosis"
+             d:DesignHeight="900" d:DesignWidth="1000">
+
     <Grid>
         <StackPanel>
-            <TextBlock Text="Atualmente nos cinemas" Margin="0,0,0,20"
+            <topControls:SearchBarView/>
+            
+            <TextBlock Text="Atualmente nos cinemas" Margin="0,20,0,20"
                        FontSize="20" Foreground="#FFFFFF"
                        HorizontalAlignment="Left"/>
 
-            <StackPanel Orientation="Horizontal">
+            <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Auto">
+                <ItemsControl ItemsSource="{Binding TheaterMovieList}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                                <Border Width="200" Height="300" Background="Black" Margin="0,0,15,0">
+                                    <Border.Clip>
+                                        <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,200,300"/>
+                                    </Border.Clip>
+                                    <Image Source="{Binding PosterPath}" Panel.ZIndex="-1" Stretch="Fill"/>
+                                </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </ScrollViewer>
 
-                <StackPanel.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="Margin" Value="15,0,0,0"/>
-                    </Style>
-                </StackPanel.Resources>
+            <TextBlock Text="Ultimos lançamentos" Margin="0,20,0,20"
+                       FontSize="20" Foreground="#FFFFFF"
+                       HorizontalAlignment="Left"/>
 
-                <Border Width="200" Height="300"
-                        Background="Black" Margin="0">
-
-                    <Border.Clip>
-                        <RectangleGeometry RadiusX="10" RadiusY="10"
-                                           Rect="0,0,200,300"/>
-                    </Border.Clip>
-                    <Image Source="/Images/filme.jpg" Panel.ZIndex="-1"
-                           Stretch="Fill"/>
-                </Border>
-
-                <Border Width="200" Height="300"
-                        Background="Black">
-
-                    <Border.Clip>
-                        <RectangleGeometry RadiusX="10" RadiusY="10"
-                                           Rect="0,0,200,300"/>
-                    </Border.Clip>
-                    <Image Source="/Images/dune.jpg" Panel.ZIndex="-1"
-                           Stretch="Fill"/>
-                </Border>
-
-                <Border Width="200" Height="300"
-                        Background="Black">
-
-                    <Border.Clip>
-                        <RectangleGeometry RadiusX="10" RadiusY="10"
-                                           Rect="0,0,200,300"/>
-                    </Border.Clip>
-                    <Image Source="/Images/matadorAluguel.jpg" Panel.ZIndex="-1"
-                           Stretch="Fill"/>
-                </Border>
-            </StackPanel>
-
-            <StackPanel>
-                <TextBlock Text="Ultimos lançamentos" Margin="0,20,0,20"
-                           FontSize="20" Foreground="#FFFFFF"
-                           HorizontalAlignment="Left"/>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal">
-
-                <StackPanel.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="Margin" Value="10,0,0,0"></Setter>
-                    </Style>
-                </StackPanel.Resources>
-
-                <Border Width="150" Height="150" Margin="0"
-                        Background="Black" CornerRadius="10" />
-
-                <Border Width="150" Height="150" 
-                        Background="Black" CornerRadius="10"/>
-
-                <Border Width="150" Height="150"
-                        Background="Black" CornerRadius="10"/>
-
-                <Border Width="150" Height="150"
-                        Background="Black" CornerRadius="10"/>
-            </StackPanel>
+            <ScrollViewer VerticalScrollBarVisibility="Hidden"
+                          HorizontalScrollBarVisibility="Auto">
+                <ItemsControl ItemsSource="{Binding LatestMovieList}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Width="100" Height="150" Background="Black" Margin="0,0,10,0">
+                                <Border.Clip>
+                                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,100,150"/>
+                                </Border.Clip>
+                                <Image Source="{Binding PosterPath}" Panel.ZIndex="-1" Stretch="Fill"/>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </ScrollViewer>
         </StackPanel>
-
     </Grid>
 </UserControl>

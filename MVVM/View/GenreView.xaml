@@ -1,0 +1,457 @@
+﻿<UserControl x:Class="MovieApp.MVVM.View.GenreView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MovieApp.MVVM.View" 
+             xmlns:viewModel="clr-namespace:MovieApp.MVVM.ViewModel" 
+             xmlns:topControls="clr-namespace:MovieApp.MVVM.View.TopControls" 
+             mc:Ignorable="d"
+             FontFamily="../../Fonts/#Dosis"
+             d:DesignHeight="900"
+    xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
+    
+    <UserControl.DataContext>
+        <viewModel:GenreViewModel/>
+    </UserControl.DataContext>
+
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="MovieTitle.Foreground" Color="#FFFFFF"/>
+        <SolidColorBrush x:Key="MovieOverview.Foreground" Color="#FFFFFF"/>
+    </UserControl.Resources>
+
+    <StackPanel>
+
+        <topControls:GenreSelectionView/>
+        
+        <ScrollViewer Height="750" Margin="0,20,0,0" >
+            <Grid Margin="0,0,20,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                
+                <StackPanel Orientation="Horizontal">
+
+                        <Border CornerRadius="10" Background="#464646" 
+                                BorderThickness="0" Margin="0,0,20,0">
+                            <StackPanel>
+                                <Border Width="180" Height="273" Background="Black" 
+                                    VerticalAlignment="Top">
+                                    <Border.Clip>
+                                        <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,180,273"/>
+                                    </Border.Clip>
+                                    <Image Source="{Binding MovieListByGenre[0].PosterPath}" Panel.ZIndex="-1" Stretch="Fill"/>
+                                </Border>
+                                <TextBlock Text="{Binding MovieListByGenre[0].Title}"
+                                           Width="180" TextWrapping="Wrap" FontWeight="Bold"
+                                           FontSize="20" Foreground="{StaticResource MovieTitle.Foreground}" 
+                                           Margin="0,10,0,0" Padding="10,0,10,10"/>
+                                <TextBlock Text="{Binding MovieListByGenre[0].ReleaseDate, StringFormat='{}{0:dd MMMM yyyy}'}"
+                                           FontSize="16" Foreground="{StaticResource MovieOverview.Foreground}" Padding="10,0,10,10"
+                                           VerticalAlignment="Bottom"/>
+                            </StackPanel>
+                        </Border>
+
+                    <Border CornerRadius="10" Background="#464646" 
+                            BorderThickness="0" Margin="0,0,20,0">
+                        <StackPanel>
+                        <Border Width="180" Height="273" Background="Black" 
+                            VerticalAlignment="Top"> <Border.Clip>
+                                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,180,273"/>
+                            </Border.Clip>
+                            <Image Source="{Binding MovieListByGenre[1].PosterPath}" Panel.ZIndex="-1" Stretch="Fill"/>
+                        </Border>
+                        <TextBlock Text="{Binding MovieListByGenre[1].Title}"
+                                   Width="180" TextWrapping="Wrap" FontWeight="Bold"
+                                   FontSize="20" Foreground="{StaticResource MovieTitle.Foreground}" 
+                                   Margin="0,10,0,0" Padding="10,0,10,10"/>
+                        <TextBlock Text="{Binding MovieListByGenre[1].ReleaseDate, StringFormat='{}{0:dd MMMM yyyy}'}"
+                                   FontSize="16" Foreground="{StaticResource MovieOverview.Foreground}" Padding="10,0,10,10"
+                                   VerticalAlignment="Bottom"/>
+                    </StackPanel>
+                    </Border>
+
+                    <Border CornerRadius="10" Background="#464646" 
+                            BorderThickness="0" Margin="0,0,20,0">
+                        <StackPanel>
+                            <Border Width="180" Height="273" Background="Black" 
+                                VerticalAlignment="Top">
+                                <Border.Clip>
+                                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,180,273"/>
+                                </Border.Clip>
+                                <Image Source="{Binding MovieListByGenre[2].PosterPath}" Panel.ZIndex="-1" Stretch="Fill"/>
+                            </Border>
+                            <TextBlock Text="{Binding MovieListByGenre[2].Title}"
+                                       Width="180" TextWrapping="Wrap" FontWeight="Bold"
+                                       FontSize="20" Foreground="{StaticResource MovieTitle.Foreground}" 
+                                       Margin="0,10,0,0" Padding="10,0,10,10"/>
+                            <TextBlock Text="{Binding MovieListByGenre[2].ReleaseDate, StringFormat='{}{0:dd MMMM yyyy}'}"
+                                       FontSize="16" Foreground="{StaticResource MovieOverview.Foreground}" Padding="10,0,10,10"
+                                       VerticalAlignment="Bottom"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border CornerRadius="10" Background="#464646" 
+                            BorderThickness="0" Margin="0,0,20,0">
+                        <StackPanel>
+                            <Border Width="180" Height="273" Background="Black" 
+                                VerticalAlignment="Top">
+                                <Border.Clip>
+                                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,180,273"/>
+                                </Border.Clip>
+                                <Image Source="{Binding MovieListByGenre[3].PosterPath}" Panel.ZIndex="-1" Stretch="Fill"/>
+                            </Border>
+                            <TextBlock Text="{Binding MovieListByGenre[3].Title}"
+                                       Width="180" TextWrapping="Wrap" FontWeight="Bold"
+                                       FontSize="20" Foreground="{StaticResource MovieTitle.Foreground}" 
+                                       Margin="0,10,0,0" Padding="10,0,10,10"/>
+                            <TextBlock Text="{Binding MovieListByGenre[3].ReleaseDate, StringFormat='{}{0:dd MMMM yyyy}'}"
+                                       FontSize="16" Foreground="{StaticResource MovieOverview.Foreground}" Padding="10,0,10,10"
+                                       VerticalAlignment="Bottom"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border CornerRadius="10" Background="#464646" 
+                            BorderThickness="0" Margin="0,0,20,0">
+                        <StackPanel>
+                            <Border Width="180" Height="273" Background="Black" 
+                                VerticalAlignment="Top">
+                                <Border.Clip>
+                                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,180,273"/>
+                                </Border.Clip>
+                                <Image Source="{Binding MovieListByGenre[4].PosterPath}" Panel.ZIndex="-1" Stretch="Fill"/>
+                            </Border>
+                            <TextBlock Text="{Binding MovieListByGenre[4].Title}"
+                                       Width="180" TextWrapping="Wrap" FontWeight="Bold"
+                                       FontSize="20" Foreground="{StaticResource MovieTitle.Foreground}" 
+                                       Margin="0,10,0,0" Padding="10,0,10,10"/>
+                            <TextBlock Text="{Binding MovieListByGenre[4].ReleaseDate, StringFormat='{}{0:dd MMMM yyyy}'}"
+                                       FontSize="16" Foreground="{StaticResource MovieOverview.Foreground}" Padding="10,0,10,10"
+                                       VerticalAlignment="Bottom"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+
+                <!--Row 2-->
+                <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,20,0,0">
+
+                    <Border CornerRadius="10" Background="#464646" 
+                            BorderThickness="0" Margin="0,0,20,0">
+                        <StackPanel>
+                            <Border Width="180" Height="273" Background="Black" 
+                                VerticalAlignment="Top">
+                                <Border.Clip>
+                                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,180,273"/>
+                                </Border.Clip>
+                                <Image Source="{Binding MovieListByGenre[5].PosterPath}" Panel.ZIndex="-1" Stretch="Fill"/>
+                            </Border>
+                            <TextBlock Text="{Binding MovieListByGenre[5].Title}"
+                                       Width="180" TextWrapping="Wrap" FontWeight="Bold"
+                                       FontSize="20" Foreground="{StaticResource MovieTitle.Foreground}" 
+                                       Margin="0,10,0,0" Padding="10,0,10,10"/>
+                            <TextBlock Text="{Binding MovieListByGenre[5].ReleaseDate, StringFormat='{}{0:dd MMMM yyyy}'}"
+                                       FontSize="16" Foreground="{StaticResource MovieOverview.Foreground}" Padding="10,0,10,10"
+                                       VerticalAlignment="Bottom"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border CornerRadius="10" Background="#464646" 
+                            BorderThickness="0" Margin="0,0,20,0">
+                        <StackPanel>
+                            <Border Width="180" Height="273" Background="Black" 
+                                VerticalAlignment="Top">
+                                <Border.Clip>
+                                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,180,273"/>
+                                </Border.Clip>
+                                <Image Source="{Binding MovieListByGenre[6].PosterPath}" Panel.ZIndex="-1" Stretch="Fill"/>
+                            </Border>
+                            <TextBlock Text="{Binding MovieListByGenre[6].Title}"
+                                       Width="180" TextWrapping="Wrap" FontWeight="Bold"
+                                       FontSize="20" Foreground="{StaticResource MovieTitle.Foreground}" 
+                                       Margin="0,10,0,0" Padding="10,0,10,10"/>
+                            <TextBlock Text="{Binding MovieListByGenre[6].ReleaseDate, StringFormat='{}{0:dd MMMM yyyy}'}"
+                                       FontSize="16" Foreground="{StaticResource MovieOverview.Foreground}" Padding="10,0,10,10"
+                                       VerticalAlignment="Bottom"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border CornerRadius="10" Background="#464646" 
+                            BorderThickness="0" Margin="0,0,20,0">
+                        <StackPanel>
+                            <Border Width="180" Height="273" Background="Black" 
+                                VerticalAlignment="Top">
+                                <Border.Clip>
+                                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,180,273"/>
+                                </Border.Clip>
+                                <Image Source="{Binding MovieListByGenre[7].PosterPath}" Panel.ZIndex="-1" Stretch="Fill"/>
+                            </Border>
+                            <TextBlock Text="{Binding MovieListByGenre[7].Title}"
+                                       Width="180" TextWrapping="Wrap" FontWeight="Bold"
+                                       FontSize="20" Foreground="{StaticResource MovieTitle.Foreground}" 
+                                       Margin="0,10,0,0" Padding="10,0,10,10"/>
+                            <TextBlock Text="{Binding MovieListByGenre[7].ReleaseDate, StringFormat='{}{0:dd MMMM yyyy}'}"
+                                       FontSize="16" Foreground="{StaticResource MovieOverview.Foreground}" Padding="10,0,10,10"
+                                       VerticalAlignment="Bottom"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border CornerRadius="10" Background="#464646" 
+                            BorderThickness="0" Margin="0,0,20,0">
+                        <StackPanel>
+                            <Border Width="180" Height="273" Background="Black" 
+                                VerticalAlignment="Top">
+                                <Border.Clip>
+                                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,180,273"/>
+                                </Border.Clip>
+                                <Image Source="{Binding MovieListByGenre[8].PosterPath}" Panel.ZIndex="-1" Stretch="Fill"/>
+                            </Border>
+                            <TextBlock Text="{Binding MovieListByGenre[8].Title}"
+                                       Width="180" TextWrapping="Wrap" FontWeight="Bold"
+                                       FontSize="20" Foreground="{StaticResource MovieTitle.Foreground}" 
+                                       Margin="0,10,0,0" Padding="10,0,10,10"/>
+                            <TextBlock Text="{Binding MovieListByGenre[8].ReleaseDate, StringFormat='{}{0:dd MMMM yyyy}'}"
+                                       FontSize="16" Foreground="{StaticResource MovieOverview.Foreground}" Padding="10,0,10,10"
+                                       VerticalAlignment="Bottom"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border CornerRadius="10" Background="#464646" 
+                            BorderThickness="0" Margin="0,0,20,0">
+                        <StackPanel>
+                            <Border Width="180" Height="273" Background="Black" 
+                                VerticalAlignment="Top">
+                                <Border.Clip>
+                                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,180,273"/>
+                                </Border.Clip>
+                                <Image Source="{Binding MovieListByGenre[9].PosterPath}" Panel.ZIndex="-1" Stretch="Fill"/>
+                            </Border>
+                            <TextBlock Text="{Binding MovieListByGenre[9].Title}"
+                                       Width="180" TextWrapping="Wrap" FontWeight="Bold"
+                                       FontSize="20" Foreground="{StaticResource MovieTitle.Foreground}" 
+                                       Margin="0,10,0,0" Padding="10,0,10,10"/>
+                            <TextBlock Text="{Binding MovieListByGenre[9].ReleaseDate, StringFormat='{}{0:dd MMMM yyyy}'}"
+                                       FontSize="16" Foreground="{StaticResource MovieOverview.Foreground}" Padding="10,0,10,10"
+                                       VerticalAlignment="Bottom"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+
+                <!--Row 3-->
+                <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,20,0,0">
+
+                    <Border CornerRadius="10" Background="#464646" 
+                            BorderThickness="0" Margin="0,0,20,0">
+                        <StackPanel>
+                            <Border Width="180" Height="273" Background="Black" 
+                            VerticalAlignment="Top">
+                                <Border.Clip>
+                                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,180,273"/>
+                                </Border.Clip>
+                                <Image Source="{Binding MovieListByGenre[10].PosterPath}" Panel.ZIndex="-1" Stretch="Fill"/>
+                            </Border>
+                            <TextBlock Text="{Binding MovieListByGenre[10].Title}"
+                                   Width="180" TextWrapping="Wrap" FontWeight="Bold"
+                                   FontSize="20" Foreground="{StaticResource MovieTitle.Foreground}" 
+                                   Margin="0,10,0,0" Padding="10,0,10,10"/>
+                            <TextBlock Text="{Binding MovieListByGenre[10].ReleaseDate, StringFormat='{}{0:dd MMMM yyyy}'}"
+                                   FontSize="16" Foreground="{StaticResource MovieOverview.Foreground}" Padding="10,0,10,10"
+                                   VerticalAlignment="Bottom"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border CornerRadius="10" Background="#464646" 
+                            BorderThickness="0" Margin="0,0,20,0">
+                        <StackPanel>
+                            <Border Width="180" Height="273" Background="Black" 
+                            VerticalAlignment="Top">
+                                <Border.Clip>
+                                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,180,273"/>
+                                </Border.Clip>
+                                <Image Source="{Binding MovieListByGenre[11].PosterPath}" Panel.ZIndex="-1" Stretch="Fill"/>
+                            </Border>
+                            <TextBlock Text="{Binding MovieListByGenre[11].Title}"
+                                   Width="180" TextWrapping="Wrap" FontWeight="Bold"
+                                   FontSize="20" Foreground="{StaticResource MovieTitle.Foreground}" 
+                                   Margin="0,10,0,0" Padding="10,0,10,10"/>
+                            <TextBlock Text="{Binding MovieListByGenre[11].ReleaseDate, StringFormat='{}{0:dd MMMM yyyy}'}"
+                                   FontSize="16" Foreground="{StaticResource MovieOverview.Foreground}" Padding="10,0,10,10"
+                                   VerticalAlignment="Bottom"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border CornerRadius="10" Background="#464646" 
+                            BorderThickness="0" Margin="0,0,20,0">
+                        <StackPanel>
+                            <Border Width="180" Height="273" Background="Black" 
+                            VerticalAlignment="Top">
+                                <Border.Clip>
+                                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,180,273"/>
+                                </Border.Clip>
+                                <Image Source="{Binding MovieListByGenre[12].PosterPath}" Panel.ZIndex="-1" Stretch="Fill"/>
+                            </Border>
+                            <TextBlock Text="{Binding MovieListByGenre[12].Title}"
+                                   Width="180" TextWrapping="Wrap" FontWeight="Bold"
+                                   FontSize="20" Foreground="{StaticResource MovieTitle.Foreground}" 
+                                   Margin="0,10,0,0" Padding="10,0,10,10"/>
+                            <TextBlock Text="{Binding MovieListByGenre[12].ReleaseDate, StringFormat='{}{0:dd MMMM yyyy}'}"
+                                   FontSize="16" Foreground="{StaticResource MovieOverview.Foreground}" Padding="10,0,10,10"
+                                   VerticalAlignment="Bottom"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border CornerRadius="10" Background="#464646" 
+                            BorderThickness="0" Margin="0,0,20,0">
+                        <StackPanel>
+                            <Border Width="180" Height="273" Background="Black" 
+                            VerticalAlignment="Top">
+                                <Border.Clip>
+                                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,180,273"/>
+                                </Border.Clip>
+                                <Image Source="{Binding MovieListByGenre[13].PosterPath}" Panel.ZIndex="-1" Stretch="Fill"/>
+                            </Border>
+                            <TextBlock Text="{Binding MovieListByGenre[13].Title}"
+                                   Width="180" TextWrapping="Wrap" FontWeight="Bold"
+                                   FontSize="20" Foreground="{StaticResource MovieTitle.Foreground}" 
+                                   Margin="0,10,0,0" Padding="10,0,10,10"/>
+                            <TextBlock Text="{Binding MovieListByGenre[13].ReleaseDate, StringFormat='{}{0:dd MMMM yyyy}'}"
+                                   FontSize="16" Foreground="{StaticResource MovieOverview.Foreground}" Padding="10,0,10,10"
+                                   VerticalAlignment="Bottom"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border CornerRadius="10" Background="#464646" 
+                            BorderThickness="0" Margin="0,0,20,0">
+                        <StackPanel>
+                            <Border Width="180" Height="273" Background="Black" 
+                            VerticalAlignment="Top">
+                                <Border.Clip>
+                                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,180,273"/>
+                                </Border.Clip>
+                                <Image Source="{Binding MovieListByGenre[14].PosterPath}" Panel.ZIndex="-1" Stretch="Fill"/>
+                            </Border>
+                            <TextBlock Text="{Binding MovieListByGenre[14].Title}"
+                                   Width="180" TextWrapping="Wrap" FontWeight="Bold"
+                                   FontSize="20" Foreground="{StaticResource MovieTitle.Foreground}" 
+                                   Margin="0,10,0,0" Padding="10,0,10,10"/>
+                            <TextBlock Text="{Binding MovieListByGenre[14].ReleaseDate, StringFormat='{}{0:dd MMMM yyyy}'}"
+                                   FontSize="16" Foreground="{StaticResource MovieOverview.Foreground}" Padding="10,0,10,10"
+                                   VerticalAlignment="Bottom"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+
+                <!--Row 4-->
+                <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,20,0,0">
+
+                    <Border CornerRadius="10" Background="#464646" 
+                            BorderThickness="0" Margin="0,0,20,0">
+                        <StackPanel>
+                            <Border Width="180" Height="273" Background="Black" 
+                            VerticalAlignment="Top">
+                                <Border.Clip>
+                                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,180,273"/>
+                                </Border.Clip>
+                                <Image Source="{Binding MovieListByGenre[15].PosterPath}" Panel.ZIndex="-1" Stretch="Fill"/>
+                            </Border>
+                            <TextBlock Text="{Binding MovieListByGenre[15].Title}"
+                                   Width="180" TextWrapping="Wrap" FontWeight="Bold"
+                                   FontSize="20" Foreground="{StaticResource MovieTitle.Foreground}" 
+                                   Margin="0,10,0,0" Padding="10,0,10,10"/>
+                            <TextBlock Text="{Binding MovieListByGenre[15].ReleaseDate, StringFormat='{}{0:dd MMMM yyyy}'}"
+                                   FontSize="16" Foreground="{StaticResource MovieOverview.Foreground}" Padding="10,0,10,10"
+                                   VerticalAlignment="Bottom"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border CornerRadius="10" Background="#464646" 
+                            BorderThickness="0" Margin="0,0,20,0">
+                        <StackPanel>
+                            <Border Width="180" Height="273" Background="Black" 
+                            VerticalAlignment="Top">
+                                <Border.Clip>
+                                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,180,273"/>
+                                </Border.Clip>
+                                <Image Source="{Binding MovieListByGenre[16].PosterPath}" Panel.ZIndex="-1" Stretch="Fill"/>
+                            </Border>
+                            <TextBlock Text="{Binding MovieListByGenre[16].Title}"
+                                   Width="180" TextWrapping="Wrap" FontWeight="Bold"
+                                   FontSize="20" Foreground="{StaticResource MovieTitle.Foreground}" 
+                                   Margin="0,10,0,0" Padding="10,0,10,10"/>
+                            <TextBlock Text="{Binding MovieListByGenre[16].ReleaseDate, StringFormat='{}{0:dd MMMM yyyy}'}"
+                                   FontSize="16" Foreground="{StaticResource MovieOverview.Foreground}" Padding="10,0,10,10"
+                                   VerticalAlignment="Bottom"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border CornerRadius="10" Background="#464646" 
+                            BorderThickness="0" Margin="0,0,20,0">
+                        <StackPanel>
+                            <Border Width="180" Height="273" Background="Black" 
+                            VerticalAlignment="Top">
+                                <Border.Clip>
+                                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,180,273"/>
+                                </Border.Clip>
+                                <Image Source="{Binding MovieListByGenre[17].PosterPath}" Panel.ZIndex="-1" Stretch="Fill"/>
+                            </Border>
+                            <TextBlock Text="{Binding MovieListByGenre[17].Title}"
+                                   Width="180" TextWrapping="Wrap" FontWeight="Bold"
+                                   FontSize="20" Foreground="{StaticResource MovieTitle.Foreground}" 
+                                   Margin="0,10,0,0" Padding="10,0,10,10"/>
+                            <TextBlock Text="{Binding MovieListByGenre[17].ReleaseDate, StringFormat='{}{0:dd MMMM yyyy}'}"
+                                   FontSize="16" Foreground="{StaticResource MovieOverview.Foreground}" Padding="10,0,10,10"
+                                   VerticalAlignment="Bottom"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border CornerRadius="10" Background="#464646" 
+                            BorderThickness="0" Margin="0,0,20,0">
+                        <StackPanel>
+                            <Border Width="180" Height="273" Background="Black" 
+                            VerticalAlignment="Top">
+                                <Border.Clip>
+                                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,180,273"/>
+                                </Border.Clip>
+                                <Image Source="{Binding MovieListByGenre[18].PosterPath}" Panel.ZIndex="-1" Stretch="Fill"/>
+                            </Border>
+                            <TextBlock Text="{Binding MovieListByGenre[18].Title}"
+                                   Width="180" TextWrapping="Wrap" FontWeight="Bold"
+                                   FontSize="20" Foreground="{StaticResource MovieTitle.Foreground}" 
+                                   Margin="0,10,0,0" Padding="10,0,10,10"/>
+                            <TextBlock Text="{Binding MovieListByGenre[18].ReleaseDate, StringFormat='{}{0:dd MMMM yyyy}'}"
+                                   FontSize="16" Foreground="{StaticResource MovieOverview.Foreground}" Padding="10,0,10,10"
+                                   VerticalAlignment="Bottom"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border CornerRadius="10" Background="#464646" 
+                            BorderThickness="0" Margin="0,0,20,0">
+                        <StackPanel>
+                            <Border Width="180" Height="273" Background="Black" 
+                            VerticalAlignment="Top">
+                                <Border.Clip>
+                                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,180,273"/>
+                                </Border.Clip>
+                                <Image Source="{Binding MovieListByGenre[19].PosterPath}" Panel.ZIndex="-1" Stretch="Fill"/>
+                            </Border>
+                            <TextBlock Text="{Binding MovieListByGenre[19].Title}"
+                                   Width="180" TextWrapping="Wrap" FontWeight="Bold"
+                                   FontSize="20" Foreground="{StaticResource MovieTitle.Foreground}" 
+                                   Margin="0,10,0,0" Padding="10,0,10,10"/>
+                            <TextBlock Text="{Binding MovieListByGenre[19].ReleaseDate, StringFormat='{}{0:dd MMMM yyyy}'}"
+                                   FontSize="16" Foreground="{StaticResource MovieOverview.Foreground}" Padding="10,0,10,10"
+                                   VerticalAlignment="Bottom"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer> 
+
+        <Button Command="{Binding NextPage}" Style="{StaticResource ButtonTheme}"
+                Width="200" Height="40" Margin="0,40,20,0"
+                Content="Proxima página" FontSize="20"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+    </StackPanel>
+</UserControl>
