@@ -1,9 +1,6 @@
-﻿using MovieApp.Core;
-using MovieApp.MVVM.Model;
+﻿using MovieApp.MVVM.Model;
 using Newtonsoft.Json;
 using RestSharp;
-using System.Globalization;
-using System.Windows;
 
 namespace MovieApp.MVVM.Data
 {
@@ -104,12 +101,34 @@ namespace MovieApp.MVVM.Data
             return movies;
         }
 
-        public async Task GetMovieById(int movieId)
+        public async Task<Movie> GetMovieById(int movieId)
         {
-            var options = new RestClientOptions("https://api.themoviedb.org/3/movie/movie_id?language=en-US");
+            var options = new RestClientOptions($"https://api.themoviedb.org/3/movie/{movieId}?language=pt-PT");
             var client = new RestClient(options);
             var response = await client.GetAsync(request);
 
+            var movieTemp = JsonConvert.DeserializeObject<dynamic>(response.Content);
+
+            Movie movie = new Movie
+            {
+                Id = movieTemp["id"],
+                Title = movieTemp["title"],
+                Overview = movieTemp["overview"],
+                ReleaseDate = movieTemp["release_date"],
+                PosterPath = string.Join("", [Image.BaseUrl, Image.PosterSize.W780, movieTemp["poster_path"]])
+            };
+
+            foreach(var company in movieTemp["production_companies"])
+            {
+                movie.ProductionCompanies.Add(new ProductionCompany
+                {
+                    Id = company["id"],
+                    Name = company["name"],
+                    LogoPath = string.Join("", [Image.BaseUrl, Image.LogoSize.W300, company["logo_path"]])
+                });
+            }
+
+            return movie;
         }
 
         public async Task<List<Movie>> GetMoviesByGenre(int genreId, int pageNumber)
@@ -138,6 +157,20 @@ namespace MovieApp.MVVM.Data
             }
 
             return movies;
+        }
+
+        public async Task<int> GetMovieId(string movieName)
+        {
+            var options = new RestClientOptions($"https://api.themoviedb.org/3/search/movie?query={movieName}&include_adult=false&language=pt-PT&page=1");
+            var client = new RestClient(options);
+
+            var response = await client.GetAsync(request);
+
+            var movieTemp = JsonConvert.DeserializeObject<dynamic>(response.Content);
+
+            int movieId = movieTemp["results"][0]["id"];
+
+            return movieId;
         }
     }
 }

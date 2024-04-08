@@ -3,9 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:MovieApp"
              xmlns:viewModel="clr-namespace:MovieApp.MVVM.ViewModel"
-             xmlns:view="clr-namespace:MovieApp.MVVM.View"
-             xmlns:topControls="clr-namespace:MovieApp.MVVM.View.TopControls"
-             StartupUri="MainWindow.xaml">
+             xmlns:view="clr-namespace:MovieApp.MVVM.View">
 
     <Application.Resources>
         <ResourceDictionary>

@@ -1,8 +1,6 @@
-﻿using MovieApp.Core;
-
-namespace MovieApp.MVVM.ViewModel
+﻿namespace MovieApp.MVVM.ViewModel
 {
-    internal class PopularViewModel : ObservableObject
+    internal class PopularViewModel : ViewModelBase
     {
     }
 }

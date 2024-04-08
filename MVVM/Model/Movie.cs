@@ -12,5 +12,7 @@ namespace MovieApp.MVVM.Model
         public string PosterPath { get; set; } = string.Empty;
         public DateOnly ReleaseDate { get; set; }
         public GenreList Genres { get; set; } = new GenreList();
+        public List<ProductionCompany> ProductionCompanies { get; set; } = new List<ProductionCompany>(); 
+        public List<Actor> Cast { get; set; } = new List<Actor>(); 
     }
 }

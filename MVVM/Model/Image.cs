@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using RestSharp;
 
-namespace MovieApp.Core
+namespace MovieApp.MVVM.Model
 {
     internal class Image
     {
@@ -40,6 +40,44 @@ namespace MovieApp.Core
             set { posterSize = value; }
         }
 
+        private static LogoSize logoSize;
+
+        public static LogoSize LogoSize
+        {
+            get 
+            { 
+                if (logoSize == null)
+                {
+                    InitializeImgDetails();
+                }
+
+                return logoSize;
+            }
+            set 
+            {
+                logoSize = value; 
+            }
+        }
+
+        private static ProfileSize profileSize;
+
+        public static ProfileSize ProfileSize 
+        {
+            get 
+            {
+                if (profileSize == null)
+                {
+                    InitializeImgDetails();
+                }
+                return profileSize; 
+            }
+            set 
+            {
+                profileSize = value; 
+            }
+        }
+
+
         public static void InitializeImgDetails()
         {
             var options = new RestClientOptions("https://api.themoviedb.org/3/configuration");
@@ -63,6 +101,25 @@ namespace MovieApp.Core
                     W780 = responseObject["images"]["poster_sizes"][5],
                     Original = responseObject["images"]["poster_sizes"][6]
                 };
+
+                LogoSize = new LogoSize
+                {
+                    W45 = responseObject["images"]["logo_sizes"][0],
+                    W95 = responseObject["images"]["logo_sizes"][1],
+                    W154 = responseObject["images"]["logo_sizes"][2],
+                    W185 = responseObject["images"]["logo_sizes"][3],
+                    W300 = responseObject["images"]["logo_sizes"][4],
+                    W500 = responseObject["images"]["logo_sizes"][5],
+                    Original = responseObject["images"]["logo_sizes"][6]
+                };
+
+                ProfileSize = new ProfileSize 
+                {
+                    W45 = responseObject["images"]["profile_sizes"][0],
+                    W185 = responseObject["images"]["profile_sizes"][1],
+                    H632 = responseObject["images"]["profile_sizes"][2],
+                    Original = responseObject["images"]["profile_sizes"][3]
+                };
             }
         }
     }
@@ -73,6 +130,25 @@ namespace MovieApp.Core
         public string W352 { get; set; }
         public string W500 { get; set; }
         public string W780 { get; set; }
+        public string Original { get; set; }
+    }
+
+    internal class LogoSize
+    {
+        public string W45 { get; set; }
+        public string W95 { get; set; }
+        public string W154 { get; set; }
+        public string W185 { get; set; }
+        public string W300 { get; set; }
+        public string W500 { get; set; }
+        public string Original { get; set; }
+    }
+
+    internal class ProfileSize
+    {
+        public string W45 { get; set; }
+        public string W185 { get; set; }
+        public string H632 { get; set; }
         public string Original { get; set; }
     }
 }

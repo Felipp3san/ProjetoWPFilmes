@@ -4,21 +4,23 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MovieApp.MVVM.View"
-             xmlns:topControls="clr-namespace:MovieApp.MVVM.View.TopControls"
              xmlns:viewModel="clr-namespace:MovieApp.MVVM.ViewModel"
              mc:Ignorable="d"             
              FontFamily="../../Fonts/#Dosis"
-             d:DesignHeight="900" d:DesignWidth="1000">
+             d:DesignWidth="800">
 
+    <UserControl.DataContext>
+        <viewModel:HomeViewModel/>
+    </UserControl.DataContext>
+    
     <Grid>
         <StackPanel>
-            <topControls:SearchBarView/>
-            
-            <TextBlock Text="Atualmente nos cinemas" Margin="0,20,0,20"
+            <TextBlock Text="Atualmente nos cinemas" Margin="0,0,0,20"
                        FontSize="20" Foreground="#FFFFFF"
                        HorizontalAlignment="Left"/>
 
-            <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Auto">
+            <ScrollViewer VerticalScrollBarVisibility="Hidden" 
+                          HorizontalScrollBarVisibility="Auto">
                 <ItemsControl ItemsSource="{Binding TheaterMovieList}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
@@ -32,7 +34,7 @@
                     </ItemsControl.ItemTemplate>
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <StackPanel Orientation="Horizontal"/>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,10"/>
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
                 </ItemsControl>
@@ -57,7 +59,7 @@
                     </ItemsControl.ItemTemplate>
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <StackPanel Orientation="Horizontal"/>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,10"/>
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
                 </ItemsControl>

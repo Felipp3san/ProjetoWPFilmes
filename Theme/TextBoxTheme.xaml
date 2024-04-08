@@ -11,8 +11,8 @@
                                 Width="300" Height="40">
                             <Grid>
                                 <Rectangle StrokeThickness="1"/>
-                                
-                                <TextBox Margin="1" Text="{TemplateBinding Text}" 
+
+                                <TextBox Margin="1" Text="{Binding MovieName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                          BorderThickness="0" Background="Transparent"
                                          VerticalContentAlignment="Center"
                                          Padding="5" Foreground="#FFFFFF"

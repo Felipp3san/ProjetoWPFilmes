@@ -1,18 +1,18 @@
-﻿using MovieApp.Core;
+﻿using MovieApp.MVVM.Commands;
 using MovieApp.MVVM.Data;
 using MovieApp.MVVM.Model;
+using System.Windows.Input;
 
 namespace MovieApp.MVVM.ViewModel
 {
-    internal class GenreViewModel : ObservableObject
+    internal class GenreViewModel : ViewModelBase
     {
         #region Properties
 
         GenreContext genreContext;
         MovieContext movieContext;
 
-        public RelayCommand NextPage { get; set; }
-        public RelayCommandArguments<int> SelectedMovie{ get; set; }
+        public ICommand NextPageCommand { get; set; }
 
         private GenreList genres;
         public GenreList Genres
@@ -60,7 +60,6 @@ namespace MovieApp.MVVM.ViewModel
             }
         }
 
-
         #endregion
 
         public GenreViewModel()
@@ -68,8 +67,7 @@ namespace MovieApp.MVVM.ViewModel
             genreContext = new GenreContext();
             movieContext = new MovieContext();
 
-            NextPage = new RelayCommand(execute => PageNumber++, canExecute => SelectedGenre != 0);
-            SelectedMovie = new RelayCommandArguments<int>(execute => SelectedMovieId((int)execute)); 
+            NextPageCommand = new NextPageCommand();
 
             InitializeGenreList();
             InitializeMovies();
@@ -88,10 +86,6 @@ namespace MovieApp.MVVM.ViewModel
         private async Task GetMoviesByGenre(int genreId, int pageNumber)
         {
             MovieListByGenre = await movieContext.GetMoviesByGenre(genreId, pageNumber);
-        }
-
-        private void SelectedMovieId(int movieId)
-        { 
         }
     }
 }

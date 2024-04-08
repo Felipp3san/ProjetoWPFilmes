@@ -1,96 +1,52 @@
-﻿using MovieApp.Core;
-using MovieApp.MVVM.View;
-using MovieApp.MVVM.View.TopControls;
-using System.Windows;
+﻿using MovieApp.MVVM.Commands;
+using MovieApp.MVVM.Model;
+using MovieApp.MVVM.Stores;
+using System.Windows.Input;
 
 namespace MovieApp.MVVM.ViewModel
 {
-    internal class MainViewModel : ObservableObject
+    internal class MainViewModel : ViewModelBase 
     {
-        #region Button Commands Properties
-        public RelayCommand HomeViewCommand { get; set; }
-        public RelayCommand PopularViewCommand { get; set; }
-        public RelayCommand GenreViewCommand { get; set; }
-		public RelayCommand SearchViewCommand { get; set; }
-        public RelayCommand CloseButtonCommand { get; set; }
+		private readonly NavigationStore _navigationStore;
 
-        #endregion
+		public ViewModelBase CurrentViewModel => _navigationStore.CurrentViewModel;
 
-        #region ViewModels
+		public ICommand NavigateHomeCommand { get; }
+		public ICommand NavigatePopularCommand { get; }
+		public ICommand NavigateGenreCommand { get; }
+		public ICommand NavigateSearchCommand { get; }
+		public ICommand CloseButtonCommand { get; }
 
-        public HomeViewModel HomeViewModel { get; set; }
-        public PopularViewModel PopularViewModel { get; set; }
-        public GenreViewModel GenreViewModel { get; set; }
-		public SearchViewModel SearchViewModel { get; set; }
+		private string movieName = string.Empty;
 
-        #endregion
-
-        #region View Setters
-
-        private object currentView;
-		public object CurrentView 
+		public string MovieName
 		{
-			get { return currentView; }
+			get { return movieName; }
 			set
-			{ 
-				currentView = value;
-				OnPropertyChanged();
-            }
-		}
-
-		private object currentMenu;
-		public object CurrentMenu 
-		{
-			get { return currentMenu; }
-			set 
-			{ 
-				currentMenu = value;
+			{
+				movieName = value;
 				OnPropertyChanged();
 			}
 		}
 
-        #endregion
-
-		public MainViewModel()
+		public MainViewModel(NavigationStore navigationStore)
 		{
+			_navigationStore = navigationStore;
+			_navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
+
+			NavigateHomeCommand = new NavigateHomeCommand(navigationStore);
+			NavigatePopularCommand = new NavigatePopularCommand(navigationStore);
+			NavigateGenreCommand = new NavigateGenreCommand(navigationStore);
+			NavigateSearchCommand = new NavigateSearchCommand(navigationStore, () => MovieName);
+			CloseButtonCommand = new CloseCommand();
+
 			Image.InitializeImgDetails();			
-
-			HomeViewModel = new HomeViewModel();
-			PopularViewModel = new PopularViewModel();
-			GenreViewModel = new GenreViewModel();
-			SearchViewModel = new SearchViewModel();
-
-			CurrentView = HomeViewModel;
-
-			HomeViewCommand = new RelayCommand(o =>
-			{
-				CurrentView = HomeViewModel;
-			});
-
-			PopularViewCommand = new RelayCommand(o =>
-			{
-				CurrentView = PopularViewModel;
-			});
-
-			GenreViewCommand = new RelayCommand(o =>
-			{
-				CurrentView = GenreViewModel;
-			});
-			
-			SearchViewCommand = new RelayCommand(o =>
-			{
-				CurrentView = SearchViewModel;
-			});
-
-			CloseButtonCommand = new RelayCommand(o =>
-			{
-                CloseApplication();	
-			});
 		}
 
-		private void CloseApplication()
-		{
-			Application.Current.Shutdown();
+        private void OnCurrentViewModelChanged()
+        {
+			MovieName = string.Empty;
+            OnPropertyChanged(nameof(CurrentViewModel));
 		}
     }
 }

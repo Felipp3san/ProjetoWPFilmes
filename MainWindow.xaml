@@ -3,19 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MovieApp"
-        xmlns:viewModel="clr-namespace:MovieApp.MVVM.ViewModel"
+        xmlns:local="clr-namespace:MovieApp" xmlns:viewmodel="clr-namespace:MovieApp.MVVM.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:MainViewModel}"
         mc:Ignorable="d"
-        Height="980" Width="1300"
+        Height="800" Width="1300"
         WindowStyle="None"
         ResizeMode="NoResize"
         Background="Transparent"
         AllowsTransparency="True"
         FontFamily="Fonts/#Dosis">
-
-    <Window.DataContext>
-        <viewModel:MainViewModel/>
-    </Window.DataContext>
 
     <Border Background="#333333" CornerRadius="10"
             MouseDown="Border_MouseDown"
@@ -26,52 +21,67 @@
                           RenderingBias="Quality" ShadowDepth="2"/>
         </Border.Effect>
         <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="75"/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="WPFilmes" FontSize="30" FontWeight="Bold"
+                   Foreground="#FFFFFF" VerticalAlignment="Center" 
+                   HorizontalAlignment="Center"/>
 
-                <TextBlock Grid.Row="0" Text="WPFilmes" FontSize="30" FontWeight="Bold"
-                       Foreground="#FFFFFF" VerticalAlignment="Center" 
-                       HorizontalAlignment="Center"/>
-                <StackPanel Grid.Row="1">
-                    <RadioButton Command="{Binding HomeViewCommand}"
-                                 Content="Home" Height="50" FontSize="20"
-                                 Foreground="#FFFFFF" Style="{StaticResource MenuButtonTheme}"
-                                 IsChecked="True"/>
+            <StackPanel Grid.Row="1">
+                <RadioButton Command="{Binding NavigateHomeCommand}"
+                             Content="Home" Height="50" FontSize="20"
+                             Foreground="#FFFFFF" Style="{StaticResource MenuButtonTheme}"
+                             IsChecked="True"/>
 
-                    <RadioButton Command="{Binding PopularViewCommand}"
-                                 Content="Em alta" Height="50" FontSize="20"
-                                 Foreground="#FFFFFF" Style="{StaticResource MenuButtonTheme}"/>
+                <RadioButton Command="{Binding NavigatePopularCommand}"
+                             Content="Em alta" Height="50" FontSize="20"
+                             Foreground="#FFFFFF" Style="{StaticResource MenuButtonTheme}"/>
 
-                    <RadioButton Command="{Binding GenreViewCommand}"
-                                 Content="Por genero" Height="50" FontSize="20"
-                                 Foreground="#FFFFFF" Style="{StaticResource MenuButtonTheme}"/>
+                <RadioButton Command="{Binding NavigateGenreCommand}"
+                             Content="Por genero" Height="50" FontSize="20"
+                             Foreground="#FFFFFF" Style="{StaticResource MenuButtonTheme}"/>
 
-                    <RadioButton Command="{Binding SearchViewCommand}"
-                                 Content="Pesquisar" Height="50" FontSize="20"
-                                 Foreground="#FFFFFF" Style="{StaticResource MenuButtonTheme}"/>
-                </StackPanel>
-            </Grid>
+                <RadioButton Command="{Binding NavigateSearchCommand}"
+                             Content="Pesquisar" Height="50" FontSize="20"
+                             Foreground="#FFFFFF" Style="{StaticResource MenuButtonTheme}"/>
+            </StackPanel>
+
 
             <Grid Grid.Column="1">
+                <Border Background="#222222" CornerRadius="0,10,0,0"/>
 
-                <Border Background="#222222" CornerRadius="0,10,10,0"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox FontSize="20" Margin="20,0,20,0" Style="{StaticResource TextBoxTheme}"
+                             VerticalContentAlignment="Center" HorizontalAlignment="Left"/>
+
+                    <Button Command="{Binding NavigateSearchCommand}"
+                            Style="{StaticResource ButtonTheme}" Width="200" Height="40" 
+                            Content="Procurar filme" FontSize="20"/>
+                </StackPanel>
 
                 <Button Command="{Binding CloseButtonCommand}" Style="{StaticResource CloseButtonTheme}"
                         Width="30" Height="30" 
                         Content="X" FontSize="25" Foreground="#FFFFFF"
                         HorizontalAlignment="Right" VerticalAlignment="Top"/>
-
-                <ContentControl Grid.Column="1" Margin="20"
-                                Content="{Binding CurrentView}"/>
             </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="1">
+            
+                <Border Background="#222222" CornerRadius="0,0,10,0"/>
+
+                <ContentControl Grid.Row="1" Grid.Column="1" Margin="20"
+                                    Content="{Binding CurrentViewModel}"/>
+            </Grid>
+
         </Grid>
     </Border>
 </Window>

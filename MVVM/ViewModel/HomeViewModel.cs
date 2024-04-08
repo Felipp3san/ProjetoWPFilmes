@@ -1,12 +1,10 @@
-﻿using MovieApp.Core;
-using MovieApp.MVVM.Data;
+﻿using MovieApp.MVVM.Data;
 using MovieApp.MVVM.Model;
 
 namespace MovieApp.MVVM.ViewModel
 {
-    internal class HomeViewModel : ObservableObject
+    internal class HomeViewModel : ViewModelBase
     {
-        
         private MovieContext movieContext;
 
         private List<Movie> theaterMovieList;
@@ -37,7 +35,6 @@ namespace MovieApp.MVVM.ViewModel
 
             InitializeTheaterMovieList();
             InitializeLatestMovies();
-
         }
 
         private async Task InitializeTheaterMovieList()
