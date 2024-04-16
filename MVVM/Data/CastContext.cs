@@ -27,14 +27,17 @@ namespace MovieApp.MVVM.Data
             var tempCast = JsonConvert.DeserializeObject<dynamic>(response.Content);
 
             foreach (var actor in tempCast["cast"]) 
-            { 
-                cast.Add(new Actor
+            {
+                if (cast.Count() < 11)
                 {
-                    Id = actor["id"],
-                    Name = actor["name"],
-                    Character = actor["character"],
-                    ProfilePath = string.Join("", [Image.BaseUrl, Image.ProfileSize.W185, actor["profile_path"]])
-                });
+                    cast.Add(new Actor
+                    {
+                        Id = actor["id"],
+                        Name = actor["name"],
+                        Character = actor["character"],
+                        ProfilePath = string.Join("", [Image.BaseUrl, Image.ProfileSize.H632, actor["profile_path"]])
+                    });
+                }
             }
 
             return cast;

@@ -1,14 +1,20 @@
-﻿using MovieApp.MVVM.Data;
+﻿using MovieApp.MVVM.Commands;
+using MovieApp.MVVM.Data;
 using MovieApp.MVVM.Model;
+using MovieApp.MVVM.Stores;
+using System.Windows.Input;
 
 namespace MovieApp.MVVM.ViewModel
 {
     internal class HomeViewModel : ViewModelBase
     {
         private MovieContext movieContext;
+        private readonly NavigationStore _navigationStore;
+        public ICommand SearchMovieCommand { get; set; }
 
-        private List<Movie> theaterMovieList;
-        public List<Movie> TheaterMovieList 
+
+        private List<Movie>? theaterMovieList;
+        public List<Movie>? TheaterMovieList 
         {
             get { return theaterMovieList; }
             set 
@@ -18,8 +24,8 @@ namespace MovieApp.MVVM.ViewModel
             }
         }
 
-        private List<Movie> latestMovieList;
-        public List<Movie> LatestMovieList 
+        private List<Movie>? latestMovieList;
+        public List<Movie>? LatestMovieList 
         {
             get { return latestMovieList; }
             set 
@@ -29,12 +35,15 @@ namespace MovieApp.MVVM.ViewModel
             }
         }
         
-        public HomeViewModel()
+        public HomeViewModel(NavigationStore navigationStore)
         {
+            _navigationStore = navigationStore;
             movieContext = new MovieContext();
 
-            InitializeTheaterMovieList();
-            InitializeLatestMovies();
+            SearchMovieCommand = new SearchMovieCommand(_navigationStore);
+
+            InitializeTheaterMovieList().GetAwaiter();
+            InitializeLatestMovies().GetAwaiter();
         }
 
         private async Task InitializeTheaterMovieList()

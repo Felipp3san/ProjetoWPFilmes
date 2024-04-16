@@ -4,16 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MovieApp.MVVM.View"
-             xmlns:viewModel="clr-namespace:MovieApp.MVVM.ViewModel"
+             xmlns:viewModel="clr-namespace:MovieApp.MVVM.ViewModel" d:DataContext="{d:DesignInstance Type=viewModel:HomeViewModel}"
              mc:Ignorable="d"             
              FontFamily="../../Fonts/#Dosis"
              d:DesignWidth="800">
-
-    <UserControl.DataContext>
-        <viewModel:HomeViewModel/>
-    </UserControl.DataContext>
     
-    <Grid>
+    <Border Background="#464646"  
+            Padding="10" CornerRadius="10" MaxHeight="725">
         <StackPanel>
             <TextBlock Text="Atualmente nos cinemas" Margin="0,0,0,20"
                        FontSize="20" Foreground="#FFFFFF"
@@ -24,12 +21,27 @@
                 <ItemsControl ItemsSource="{Binding TheaterMovieList}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                                <Border Width="200" Height="300" Background="Black" Margin="0,0,15,0">
-                                    <Border.Clip>
-                                        <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,200,300"/>
-                                    </Border.Clip>
-                                    <Image Source="{Binding PosterPath}" Panel.ZIndex="-1" Stretch="Fill"/>
+                            <Grid>
+                                <!-- Border com o efeito de sombra -->
+                                <Border Width="200" Height="300" 
+                                        Background="Black" Margin="0,0,15,0"
+                                        CornerRadius="10">
+                                    <Border.Effect>
+                                        <DropShadowEffect BlurRadius="6" Direction="-60" RenderingBias="Quality" ShadowDepth="3"/>
+                                    </Border.Effect>
                                 </Border>
+                                <!-- Border com a imagem e o recorte, sem o efeito de sombra -->
+                                <Button Style="{StaticResource ButtonTheme}" Command="{Binding DataContext.SearchMovieCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" 
+                                        CommandParameter="{Binding Title}" Background="Transparent" BorderThickness="0"
+                                        VerticalContentAlignment="Center" Margin="0,0,15,0">
+                                    <Border Width="200" Height="300" Background="Transparent">
+                                        <Image Source="{Binding PosterPath}" Panel.ZIndex="-1" Stretch="Fill"/>
+                                        <Border.Clip>
+                                            <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,200,300"/>
+                                        </Border.Clip>
+                                    </Border>
+                                </Button>
+                            </Grid>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                     <ItemsControl.ItemsPanel>
@@ -49,12 +61,25 @@
                 <ItemsControl ItemsSource="{Binding LatestMovieList}">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Border Width="100" Height="150" Background="Black" Margin="0,0,10,0">
-                                <Border.Clip>
-                                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,100,150"/>
-                                </Border.Clip>
-                                <Image Source="{Binding PosterPath}" Panel.ZIndex="-1" Stretch="Fill"/>
-                            </Border>
+                            <Grid>
+                                <Border Width="100" Height="150" 
+                                            Background="Black" Margin="0,0,10,0"
+                                            CornerRadius="10">
+                                    <Border.Effect>
+                                        <DropShadowEffect BlurRadius="6" Direction="-60" RenderingBias="Quality" ShadowDepth="3"/>
+                                    </Border.Effect>
+                                </Border>
+                                <Button Style="{StaticResource ButtonTheme}" Command="{Binding DataContext.SearchMovieCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" 
+                                        CommandParameter="{Binding Title}" Background="Transparent" BorderThickness="0"
+                                        VerticalContentAlignment="Center" Margin="0,0,10,0">
+                                    <Border Width="100" Height="150" Background="Black">
+                                        <Border.Clip>
+                                            <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,100,150"/>
+                                        </Border.Clip>
+                                        <Image Source="{Binding PosterPath}" Panel.ZIndex="-1" Stretch="Fill"/>
+                                    </Border>
+                                </Button>
+                            </Grid>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                     <ItemsControl.ItemsPanel>
@@ -65,5 +90,5 @@
                 </ItemsControl>
             </ScrollViewer>
         </StackPanel>
-    </Grid>
+    </Border>
 </UserControl>

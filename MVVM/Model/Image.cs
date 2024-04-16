@@ -126,29 +126,29 @@ namespace MovieApp.MVVM.Model
 
     internal class PosterSize
     {
-        public string W185 { get; set; }
-        public string W352 { get; set; }
-        public string W500 { get; set; }
-        public string W780 { get; set; }
-        public string Original { get; set; }
+        public string W185 { get; set; } = string.Empty;
+        public string W352 { get; set; } = string.Empty;
+        public string W500 { get; set; } = string.Empty;
+        public string W780 { get; set; } = string.Empty;
+        public string Original { get; set; } = string.Empty;
     }
 
     internal class LogoSize
     {
-        public string W45 { get; set; }
-        public string W95 { get; set; }
-        public string W154 { get; set; }
-        public string W185 { get; set; }
-        public string W300 { get; set; }
-        public string W500 { get; set; }
-        public string Original { get; set; }
+        public string W45 { get; set; } = string.Empty;
+        public string W95 { get; set; } = string.Empty;
+        public string W154 { get; set; } = string.Empty;
+        public string W185 { get; set; } = string.Empty;
+        public string W300 { get; set; } = string.Empty;
+        public string W500 { get; set; } = string.Empty;
+        public string Original { get; set; } = string.Empty;
     }
 
     internal class ProfileSize
     {
-        public string W45 { get; set; }
-        public string W185 { get; set; }
-        public string H632 { get; set; }
-        public string Original { get; set; }
+        public string W45 { get; set; } = string.Empty;
+        public string W185 { get; set; } = string.Empty;
+        public string H632 { get; set; } = string.Empty;
+        public string Original { get; set; } = string.Empty;
     }
 }

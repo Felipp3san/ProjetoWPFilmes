@@ -2,10 +2,16 @@
 {
     public class NextPageCommand : CommandBase
     {
-        public NextPageCommand() { }
+        public event Action? PageNumberChanged;
 
         public override void Execute(object? parameter)
         {
+            OnPageNumberChange();
+        }
+
+        public void OnPageNumberChange()
+        {
+            PageNumberChanged?.Invoke();
         }
     }
 }

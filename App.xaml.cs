@@ -14,7 +14,7 @@ namespace MovieApp
         public App()
         {
             _navigationStore = new NavigationStore();
-            _navigationStore.CurrentViewModel = new HomeViewModel();
+            _navigationStore.CurrentViewModel = new HomeViewModel(_navigationStore);
         }
 
         protected override void OnStartup(StartupEventArgs e)

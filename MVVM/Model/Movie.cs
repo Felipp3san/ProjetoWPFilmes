@@ -14,5 +14,6 @@ namespace MovieApp.MVVM.Model
         public GenreList Genres { get; set; } = new GenreList();
         public List<ProductionCompany> ProductionCompanies { get; set; } = new List<ProductionCompany>(); 
         public List<Actor> Cast { get; set; } = new List<Actor>(); 
+        public List<MovieProvider> Providers { get; set; } = new List<MovieProvider>(); 
     }
 }

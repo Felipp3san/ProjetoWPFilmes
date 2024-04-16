@@ -15,6 +15,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Page Remove="Theme\ScrollbarThemeDark.xaml" />
+    <Page Remove="Theme\ScrollbarThemeLight.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Fonts\Dosis.ttf" />
     <Resource Include="Images\closeButtonBlack.png" />
     <Resource Include="Images\closeButtonWhite.png" />

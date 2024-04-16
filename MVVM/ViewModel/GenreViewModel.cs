@@ -1,18 +1,19 @@
 ﻿using MovieApp.MVVM.Commands;
 using MovieApp.MVVM.Data;
 using MovieApp.MVVM.Model;
+using MovieApp.MVVM.Stores;
 using System.Windows.Input;
 
 namespace MovieApp.MVVM.ViewModel
 {
     internal class GenreViewModel : ViewModelBase
     {
-        #region Properties
-
+        private readonly NavigationStore _navigationStore;
         GenreContext genreContext;
         MovieContext movieContext;
 
         public ICommand NextPageCommand { get; set; }
+        public ICommand SearchMovieCommand { get; set; }
 
         private GenreList genres;
         public GenreList Genres
@@ -56,21 +57,30 @@ namespace MovieApp.MVVM.ViewModel
             set
             {
                 pageNumber = value; 
-                GetMoviesByGenre(selectedGenre, PageNumber);
+                GetMoviesByGenre(selectedGenre, PageNumber).GetAwaiter();
             }
         }
 
-        #endregion
-
-        public GenreViewModel()
+        public GenreViewModel(NavigationStore navigationStore)
         {
+            _navigationStore = navigationStore;
+
             genreContext = new GenreContext();
             movieContext = new MovieContext();
+            NextPageCommand = new NextPageCommand(); 
 
-            NextPageCommand = new NextPageCommand();
+            NextPageCommand.CanExecute(SelectedGenre != 0);
+            ((NextPageCommand) NextPageCommand).PageNumberChanged += OnPageNumberChanged;
 
-            InitializeGenreList();
-            InitializeMovies();
+            SearchMovieCommand = new SearchMovieCommand(_navigationStore);
+
+            InitializeGenreList().GetAwaiter();
+            InitializeMovies().GetAwaiter();
+        }
+
+        private void OnPageNumberChanged()
+        {
+            PageNumber++;
         }
 
         private async Task InitializeGenreList()

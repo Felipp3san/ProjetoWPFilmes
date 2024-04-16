@@ -5,14 +5,13 @@ namespace MovieApp.MVVM.ViewModel
 {
     internal class SearchViewModel : ViewModelBase
     {
-		private readonly string _movieName;
-
 		private MovieContext movieContext;
 		private CastContext castContext;
+		private MovieProviderContext movieProviderContext;
 
-		private Movie selectedMovie;
+		private Movie? selectedMovie;
 
-		public Movie SelectedMovie 
+		public Movie? SelectedMovie 
 		{
 			get { return selectedMovie; }
 			set
@@ -22,40 +21,53 @@ namespace MovieApp.MVVM.ViewModel
 			}
 		}
 
-		public SearchViewModel(string movieName)
+		public SearchViewModel()
 		{
 			movieContext = new MovieContext();
 			castContext = new CastContext();
+			movieProviderContext = new MovieProviderContext();
 
-			_movieName = movieName;
-			InitializeMovie(_movieName);
-		}
+            InitializeMovie();
+        }
 
-		private async Task InitializeMovie(string? movieName)
+        public SearchViewModel(string movieName)
 		{
-			int movieId;
+			movieContext = new MovieContext();
+			castContext = new CastContext();
+			movieProviderContext = new MovieProviderContext();
 
-			if(string.IsNullOrEmpty(movieName))
-			{
-				movieId = 693134;
-			}
-            else
-            {
-               movieId = await GetMovieId(movieName); 
-            }
-
-            Movie movie = await movieContext.GetMovieById(movieId);
-			movie.Cast = await castContext.GetCastByMovieId(movieId);
-
-			SelectedMovie = movie;
+			InitializeMovie(movieName).GetAwaiter();
 		}
 
+		private async Task InitializeMovie()
+		{
+            var popularMovies = await movieContext.GetPopularMovies();
 
-		private async Task<int> GetMovieId(string movieName)
+            Movie? movie = await movieContext.GetMovieById(popularMovies.First().Id);
+
+            if (movie != null)
+            {
+                movie.Cast = await castContext.GetCastByMovieId(movie.Id);
+                movie.Providers = await movieProviderContext.GetProvidersByMovieId(movie.Id);
+                SelectedMovie = movie;
+            }
+        }
+
+		private async Task InitializeMovie(string movieName)
 		{
 			int movieId = await movieContext.GetMovieId(movieName);
 
-			return movieId;
+			if (movieId != 0)
+			{
+                Movie? movie = await movieContext.GetMovieById(movieId);
+
+                if (movie != null)
+                {
+                    movie.Cast = await castContext.GetCastByMovieId(movieId);
+                    movie.Providers = await movieProviderContext.GetProvidersByMovieId(movieId);
+                    SelectedMovie = movie;
+                }
+			}
 		}
     }
 }

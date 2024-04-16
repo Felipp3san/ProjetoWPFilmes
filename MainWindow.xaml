@@ -3,22 +3,23 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MovieApp" xmlns:viewmodel="clr-namespace:MovieApp.MVVM.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:MainViewModel}"
+        xmlns:local="clr-namespace:MovieApp" 
+        xmlns:viewmodel="clr-namespace:MovieApp.MVVM.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:MainViewModel}"
         mc:Ignorable="d"
         Height="800" Width="1300"
         WindowStyle="None"
-        ResizeMode="NoResize"
         Background="Transparent"
         AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
         FontFamily="Fonts/#Dosis">
 
-    <Border Background="#333333" CornerRadius="10"
+    <Border Background="#464646" CornerRadius="10"
             MouseDown="Border_MouseDown"
-            Margin="20" BorderThickness="0.5" BorderBrush="#FFFFFF">
+            Margin="20" BorderThickness="0.3" BorderBrush="#FFFFFF">
 
         <Border.Effect>
             <DropShadowEffect BlurRadius="15" Direction="-90"
-                          RenderingBias="Quality" ShadowDepth="2"/>
+                              RenderingBias="Quality" ShadowDepth="2"/>
         </Border.Effect>
         <Grid>
 
@@ -52,7 +53,8 @@
 
                 <RadioButton Command="{Binding NavigateSearchCommand}"
                              Content="Pesquisar" Height="50" FontSize="20"
-                             Foreground="#FFFFFF" Style="{StaticResource MenuButtonTheme}"/>
+                             Foreground="#FFFFFF" Style="{StaticResource MenuButtonTheme}"
+                             IsChecked="{Binding IsChecked}"/>
             </StackPanel>
 
 
@@ -63,7 +65,7 @@
                     <TextBox FontSize="20" Margin="20,0,20,0" Style="{StaticResource TextBoxTheme}"
                              VerticalContentAlignment="Center" HorizontalAlignment="Left"/>
 
-                    <Button Command="{Binding NavigateSearchCommand}"
+                    <Button Command="{Binding NavigateSearchBarCommand}"
                             Style="{StaticResource ButtonTheme}" Width="200" Height="40" 
                             Content="Procurar filme" FontSize="20"/>
                 </StackPanel>
@@ -75,13 +77,12 @@
             </Grid>
 
             <Grid Grid.Row="1" Grid.Column="1">
-            
+
                 <Border Background="#222222" CornerRadius="0,0,10,0"/>
 
                 <ContentControl Grid.Row="1" Grid.Column="1" Margin="20"
-                                    Content="{Binding CurrentViewModel}"/>
+                                Content="{Binding CurrentViewModel}"/>
             </Grid>
-
         </Grid>
     </Border>
 </Window>
