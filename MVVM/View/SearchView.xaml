@@ -11,126 +11,18 @@
 
     <ScrollViewer HorizontalScrollBarVisibility="Disabled"
                   VerticalScrollBarVisibility="Auto">
-        <StackPanel>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width=".6*"/>
                 </Grid.ColumnDefinitions>
+                
+                <Grid Grid.Column="0">
+                    
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
 
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                </Grid.RowDefinitions>
-
-                <Border Grid.Column="1" Background="#464646" Margin="20,0,0,0" 
-                    Padding="10" CornerRadius="10">
-                    <Grid Width="630" HorizontalAlignment="Left">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                        </Grid.RowDefinitions>
-
-                        <TextBlock Grid.Row="0" Text="{Binding SelectedMovie.Title}" FontSize="30"
-                           Foreground="#FFFFFF"/>
-
-                        <TextBlock Grid.Row="1" Text="{Binding SelectedMovie.Overview}" FontSize="18"
-                           TextWrapping="Wrap" Foreground="#FFFFFF" TextAlignment="Justify"
-                           Margin="0,20,0,0"/>
-
-                        <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
-                            <TextBlock Text="Onde assistir" Foreground="#FFFFFF"
-                                   FontSize="25" Margin="0,20,0,10"/>
-
-                            <ScrollViewer VerticalScrollBarVisibility="Hidden"
-                                  HorizontalScrollBarVisibility="Auto">
-
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto"/>
-                                    </Grid.ColumnDefinitions>
-                                    
-                                    <Border Background="#222222" Padding="10,10,0,10" CornerRadius="10">
-                                        <ItemsControl ItemsSource="{Binding SelectedMovie.Providers}">
-                                            <ItemsControl.ItemTemplate>
-                                                <DataTemplate>
-                                                    <Border Width="50" Height="50" 
-                                                            Margin="0,0,10,0" CornerRadius="10">
-                                                        <Border.Clip>
-                                                            <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,50,50"/>
-                                                        </Border.Clip>
-                                                        <Image Source="{Binding LogoPath}" Stretch="Uniform"/>
-                                                    </Border>
-                                                </DataTemplate>
-                                            </ItemsControl.ItemTemplate>
-                                            <ItemsControl.ItemsPanel>
-                                                <ItemsPanelTemplate>
-                                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
-                                                                MinHeight="50" MinWidth="50"/>
-                                                </ItemsPanelTemplate>
-                                            </ItemsControl.ItemsPanel>
-                                        </ItemsControl>
-                                    </Border>
-                                </Grid>
-                            </ScrollViewer>
-                        </StackPanel>
-
-                        <StackPanel Grid.Row="3" VerticalAlignment="Bottom">
-
-                            <TextBlock Text="Elenco" Foreground="#FFFFFF"
-                               FontSize="25" Margin="0,20,0,20"/>
-
-                            <ScrollViewer VerticalScrollBarVisibility="Hidden"
-                                          HorizontalScrollBarVisibility="Auto">
-                                <ItemsControl ItemsSource="{Binding SelectedMovie.Cast}"
-                                              Margin="0,0,0,10">
-                                    <ItemsControl.ItemTemplate>
-                                        <DataTemplate>
-                                            <Grid>
-                                                <Border Width="150" Background="Black" 
-                                                        Margin="0,0,10,0" CornerRadius="10">
-                                                    <Border.Effect>
-                                                        <DropShadowEffect BlurRadius="6" Direction="-60" 
-                                                                          RenderingBias="Quality" ShadowDepth="3"/>
-                                                    </Border.Effect>
-                                                </Border>
-
-                                                <Border Margin="0,0,10,0" Width="150" 
-                                                    Background="#FFFFFF" CornerRadius="10">
-                                                    <StackPanel>
-                                                        <Border Width="150" Height="200" 
-                                                            Background="Transparent">
-                                                            <Image Source="{Binding ProfilePath}" Stretch="UniformToFill"/>
-                                                        </Border>
-                                                        <StackPanel Margin="10">
-                                                            <TextBlock Text="{Binding Name}" FontSize="16"
-                                                                   Foreground="Black"                                                        TextWrapping="Wrap" FontWeight="Bold"/>
-                                                            <TextBlock Text="As" FontSize="12"
-                                                                   Foreground="Black" TextWrapping="Wrap"/>
-                                                            <TextBlock Text="{Binding Character}" FontSize="14"
-                                                                   Foreground="Black" TextWrapping="Wrap"/>
-                                                        </StackPanel>
-                                                    </StackPanel>
-                                                    <Border.Clip>
-                                                        <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,150,300"/>
-                                                    </Border.Clip>
-                                                </Border>
-                                            </Grid>
-                                        </DataTemplate>
-                                    </ItemsControl.ItemTemplate>
-                                    <ItemsControl.ItemsPanel>
-                                        <ItemsPanelTemplate>
-                                            <WrapPanel Orientation="Horizontal"/>
-                                        </ItemsPanelTemplate>
-                                    </ItemsControl.ItemsPanel>
-                                </ItemsControl>
-                            </ScrollViewer>
-                        </StackPanel>
-                    </Grid>
-                </Border>
-
-                <Grid>
                     <Border Background="#464646" CornerRadius="10" 
                             VerticalAlignment="Top">
                         <StackPanel Width="327">
@@ -147,17 +39,21 @@
                             <ItemsControl ItemsSource="{Binding SelectedMovie.ProductionCompanies}">
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
-                                        <Border Width="100" Height="100"
-                                                CornerRadius="100" Opacity="0.8"
-                                                Background="White" Margin="0,0,0,10">
-                                            <Grid Width="70" Height="70">
-                                                <Image Source="{Binding LogoPath}" Stretch="Uniform"/>
-                                            </Grid>
-                                            <Border.Effect>
-                                                <DropShadowEffect BlurRadius="15" Direction="-90"
-                                                                  RenderingBias="Quality" ShadowDepth="2"/>
-                                            </Border.Effect>
-                                        </Border>
+                                        <Grid>
+                                            <Border Width="100" Height="100" CornerRadius="100" 
+                                                    Background="black" Margin="0,0,0,10">
+                                                <Border.Effect>
+                                                    <DropShadowEffect BlurRadius="7" Direction="-60"
+                                                                      RenderingBias="Quality" ShadowDepth="5"/>
+                                                </Border.Effect>
+                                            </Border>
+                                            <Border Width="100" Height="100" CornerRadius="100" 
+                                                    Background="White" Margin="0,0,0,10">
+                                                <Grid Width="70" Height="70">
+                                                    <Image Source="{Binding LogoPath}" Stretch="Uniform"/>
+                                                </Grid>
+                                            </Border>
+                                        </Grid>
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
                                 <ItemsControl.ItemsPanel>
@@ -169,7 +65,130 @@
                         </StackPanel>
                     </Border>
                 </Grid>
+                
+                <Grid Grid.Column="1">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Border Background="#464646" Margin="20,0,0,0" 
+                            Padding="10" CornerRadius="10">
+                        <Grid>
+                            
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" Text="{Binding SelectedMovie.Title}" FontSize="30"
+                               Foreground="#FFFFFF"/>
+
+                            <TextBlock Grid.Row="1" Text="{Binding SelectedMovie.Overview}" FontSize="18"
+                               TextWrapping="Wrap" Foreground="#FFFFFF" TextAlignment="Justify"
+                               Margin="0,20,0,0"/>
+
+                            <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
+                                <TextBlock Text="Onde assistir" Foreground="#FFFFFF"
+                                       FontSize="25" Margin="0,20,0,10"/>
+
+                                <ScrollViewer VerticalScrollBarVisibility="Hidden"
+                                              HorizontalScrollBarVisibility="Auto">
+                                    <Grid Margin="5">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        
+                                    <Border CornerRadius="10" Background="black" 
+                                            Padding="10,10,0,10">
+                                        <Border.Effect>
+                                            <DropShadowEffect BlurRadius="5" Direction="315"
+                                                              RenderingBias="Quality" ShadowDepth="0" Opacity="0.5"/>
+                                        </Border.Effect>
+                                    </Border>
+                                        
+                                    <Border Background="#222222" Padding="10,10,0,10" CornerRadius="10">
+                                            <ItemsControl ItemsSource="{Binding SelectedMovie.Providers}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Border Width="50" Height="50" 
+                                                                Margin="0,0,10,0" CornerRadius="10">
+                                                            <Border.Clip>
+                                                                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,50,50"/>
+                                                            </Border.Clip>
+                                                            <Image Source="{Binding LogoPath}" Stretch="Uniform"/>
+                                                        </Border>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                                <ItemsControl.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
+                                                                    MinHeight="50" MinWidth="50"/>
+                                                    </ItemsPanelTemplate>
+                                                </ItemsControl.ItemsPanel>
+                                            </ItemsControl>
+                                        </Border>
+                                    </Grid>
+                                </ScrollViewer>
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="3">
+
+                                <TextBlock Text="Elenco" Foreground="#FFFFFF"
+                                   FontSize="25" Margin="0,20,0,20"/>
+
+                                <ScrollViewer VerticalScrollBarVisibility="Hidden"
+                                              HorizontalScrollBarVisibility="Auto">
+                                    <ItemsControl ItemsSource="{Binding SelectedMovie.Cast}"
+                                                  Margin="0,0,0,10">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid>
+                                                    <Border Width="150" Background="Black" 
+                                                            Margin="0,0,10,0" CornerRadius="10">
+                                                        <Border.Effect>
+                                                            <DropShadowEffect BlurRadius="7" Direction="-60"
+                                                                          RenderingBias="Quality" ShadowDepth="5"/>
+                                                        </Border.Effect>
+                                                    </Border>
+
+                                                    <Border Margin="0,0,10,0" Width="150" 
+                                                        Background="#FFFFFF" CornerRadius="10">
+                                                        <StackPanel>
+                                                            <Border Width="150" Height="200" 
+                                                                Background="Transparent">
+                                                                <Image Source="{Binding ProfilePath}" Stretch="UniformToFill"/>
+                                                            </Border>
+                                                            <StackPanel Margin="10">
+                                                                <TextBlock Text="{Binding Name}" FontSize="16"
+                                                                       Foreground="Black"                                                        TextWrapping="Wrap" FontWeight="Bold"/>
+                                                                <TextBlock Text="As" FontSize="12"
+                                                                       Foreground="Black" TextWrapping="Wrap"/>
+                                                                <TextBlock Text="{Binding Character}" FontSize="14"
+                                                                       Foreground="Black" TextWrapping="Wrap"/>
+                                                            </StackPanel>
+                                                        </StackPanel>
+                                                        <Border.Clip>
+                                                            <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,150,300"/>
+                                                        </Border.Clip>
+                                                    </Border>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <WrapPanel Orientation="Horizontal"/>
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                    </ItemsControl>
+                                </ScrollViewer>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </Grid>
+
             </Grid>
-        </StackPanel>
     </ScrollViewer>
 </UserControl>

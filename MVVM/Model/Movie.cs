@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace MovieApp.MVVM.Model
+﻿namespace MovieApp.MVVM.Model
 {
     internal class Movie
     {

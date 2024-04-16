@@ -1,7 +1,6 @@
 ﻿using MovieApp.MVVM.Commands;
 using MovieApp.MVVM.Model;
 using MovieApp.MVVM.Stores;
-using System.Runtime.CompilerServices;
 using System.Windows.Input;
 
 namespace MovieApp.MVVM.ViewModel
@@ -10,13 +9,12 @@ namespace MovieApp.MVVM.ViewModel
     {
 		private readonly NavigationStore _navigationStore;
 
-		// Propriedade utilizada para atribuir a View correta ao ContentControl, inicializado com 'Home' ao iniciar aplicação.
+		// Propriedade utilizada para atribuir a View atual ao ContentControl, inicializado com 'Home' ao iniciar aplicação.
 		public ViewModelBase CurrentViewModel => _navigationStore.CurrentViewModel;
 
-
-		// Propriedade utilizada para alterar seleção do Menu
+		// Propriedade utilizada para alterar seleção do menu lateral caso a secção
+		// de pesquisa seja acessada a partir da caixa de pesquisa ou ao clicar em um filme.
 		private bool isChecked = false;
-
 		public bool IsChecked 
 		{
 			get { return isChecked; }
@@ -27,6 +25,7 @@ namespace MovieApp.MVVM.ViewModel
 			}
 		}
 
+		// Propriedades responsáveis por controlar o menu lateral e o botão que encerra a aplicação. 
 		public ICommand NavigateHomeCommand { get; }
 		public ICommand NavigatePopularCommand { get; }
 		public ICommand NavigateGenreCommand { get; }
@@ -37,7 +36,6 @@ namespace MovieApp.MVVM.ViewModel
 
 		// Propriedade utilizada para capturar o nome do filme a ser pesquisado.
 		private string movieName = string.Empty;
-
 		public string MovieName
 		{
 			get { return movieName; }
@@ -55,7 +53,7 @@ namespace MovieApp.MVVM.ViewModel
 			// Associa o metodo OnCurrentViewModel ao evento do NavigationStore que notifica alterações de View.
 			_navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
 
-			// Instacia os botões de navegação
+			// Inicializaão das propriedades dos botões de navegação
 			NavigateHomeCommand = new NavigateHomeCommand(navigationStore);
 			NavigatePopularCommand = new NavigatePopularCommand(navigationStore);
 			NavigateGenreCommand = new NavigateGenreCommand(navigationStore);
@@ -67,6 +65,11 @@ namespace MovieApp.MVVM.ViewModel
 			Image.InitializeImgDetails();			
 		}
 
+		/// <summary>
+		/// Responsável por notificar a View sobre mudanças da propriedade CurrentView.
+		/// A View altera o conteúdo do ContentControl após receber a notificação, 
+		/// para que a view selecionada seja exibida corretamente.
+		/// </summary>
         private void OnCurrentViewModelChanged()
         {
 			// Limpa a caixa de pesquisa de filmes
@@ -74,11 +77,9 @@ namespace MovieApp.MVVM.ViewModel
 
 			// Sempre que um filme for pesquisado, a seleção do menu vai para a aba 'Pesquisar' 			
 			if(CurrentViewModel.GetType() == typeof(SearchViewModel))
-			{ 
 				IsChecked = true;
-			}
 
-			// Envia uma notificação para view modificar a apresentação no ContentControl
+			// Envia uma notificação para view modificar a apresentação do ContentControl
             OnPropertyChanged(nameof(CurrentViewModel));
 		}
     }

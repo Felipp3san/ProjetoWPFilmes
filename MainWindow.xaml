@@ -62,6 +62,7 @@
                 <Border Background="#222222" CornerRadius="0,10,0,0"/>
 
                 <StackPanel Orientation="Horizontal">
+                    
                     <TextBox FontSize="20" Margin="20,0,20,0" Style="{StaticResource TextBoxTheme}"
                              VerticalContentAlignment="Center" HorizontalAlignment="Left"/>
 

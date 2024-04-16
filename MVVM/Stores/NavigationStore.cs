@@ -6,6 +6,8 @@ namespace MovieApp.MVVM.Stores
     {
         public event Action CurrentViewModelChanged;
 
+
+        // Propriedade que armazena a view selecionada
         private ViewModelBase currentViewModel;
 
         public ViewModelBase CurrentViewModel 
@@ -18,6 +20,7 @@ namespace MovieApp.MVVM.Stores
             }
         }
 
+        // Método do evento CurrentViewModelChanged que notifica o MainViewModel quando há modificação no CurrentView (Opção de menu selecionada)
         public void OnCurrentViewModelChanged()
         {
             CurrentViewModelChanged?.Invoke();

@@ -8,11 +8,13 @@ namespace MovieApp.MVVM.ViewModel
 {
     internal class HomeViewModel : ViewModelBase
     {
-        private MovieContext movieContext;
         private readonly NavigationStore _navigationStore;
+        private MovieContext movieContext;
+
+        // Comando responsável por chamar a página de pesquisa a partir do filme que foi clicado.
         public ICommand SearchMovieCommand { get; set; }
 
-
+        // Armazena a lista de filmes (em exibição nos cinemas), que está sendo exibida na HomeView. 
         private List<Movie>? theaterMovieList;
         public List<Movie>? TheaterMovieList 
         {
@@ -24,6 +26,7 @@ namespace MovieApp.MVVM.ViewModel
             }
         }
 
+        // Armazena a lista de filmes (adicionados recentemente a DB), que está sendo exibida na HomeView. 
         private List<Movie>? latestMovieList;
         public List<Movie>? LatestMovieList 
         {
@@ -46,11 +49,23 @@ namespace MovieApp.MVVM.ViewModel
             InitializeLatestMovies().GetAwaiter();
         }
 
+        /// <summary>
+        /// Faz a busca dos filmes atualmente em exibição nos cinemas
+        /// e repassa para a propriedade responsável por armazena-los para serem 
+        /// exibidos na View.
+        /// </summary>
+        /// <returns></returns>
         private async Task InitializeTheaterMovieList()
         {
             TheaterMovieList = await movieContext.GetTheaterMovies();
         }
 
+        /// <summary>
+        /// Faz a busca dos filmes adicionado recentemente a DB do TheMovieDB 
+        /// e repassa para a propriedade responsável por armazena-los para serem 
+        /// exibidos na View.
+        /// </summary>
+        /// <returns></returns>
         private async Task InitializeLatestMovies()
         {
             LatestMovieList = await movieContext.GetLatestMovies(); 

@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MovieApp.MVVM.ViewModel
 {
@@ -12,6 +7,10 @@ namespace MovieApp.MVVM.ViewModel
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 
+        /// <summary>
+        /// Notifica mudanças dos valores de propriedades as Views.
+        /// </summary>
+        /// <param name="property"></param>
         protected void OnPropertyChanged([CallerMemberName] string? property = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));

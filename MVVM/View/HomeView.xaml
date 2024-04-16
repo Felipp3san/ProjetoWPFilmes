@@ -23,11 +23,11 @@
                         <DataTemplate>
                             <Grid>
                                 <!-- Border com o efeito de sombra -->
-                                <Border Width="200" Height="300" 
-                                        Background="Black" Margin="0,0,15,0"
-                                        CornerRadius="10">
+                                <Border Width="200" Height="300" Background="Black"
+                                        Margin="0,0,15,0" CornerRadius="10">
                                     <Border.Effect>
-                                        <DropShadowEffect BlurRadius="6" Direction="-60" RenderingBias="Quality" ShadowDepth="3"/>
+                                        <DropShadowEffect BlurRadius="7" Direction="-60"
+                                                          RenderingBias="Quality" ShadowDepth="4"/>
                                     </Border.Effect>
                                 </Border>
                                 <!-- Border com a imagem e o recorte, sem o efeito de sombra -->
@@ -66,7 +66,8 @@
                                             Background="Black" Margin="0,0,10,0"
                                             CornerRadius="10">
                                     <Border.Effect>
-                                        <DropShadowEffect BlurRadius="6" Direction="-60" RenderingBias="Quality" ShadowDepth="3"/>
+                                        <DropShadowEffect BlurRadius="7" Direction="-60"
+                                                          RenderingBias="Quality" ShadowDepth="5"/>
                                     </Border.Effect>
                                 </Border>
                                 <Button Style="{StaticResource ButtonTheme}" Command="{Binding DataContext.SearchMovieCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" 

@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Images\film-slate.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,6 +18,10 @@
   <ItemGroup>
     <Page Remove="Theme\ScrollbarThemeDark.xaml" />
     <Page Remove="Theme\ScrollbarThemeLight.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\film-slate.ico" />
   </ItemGroup>
 
   <ItemGroup>

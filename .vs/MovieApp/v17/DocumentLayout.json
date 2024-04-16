@@ -3,20 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\f-eli\\OneDrive\\\u00C1rea de Trabalho\\MovieApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C02DD725-5731-4874-89F9-C066B901FC5E}|MovieApp.csproj|c:\\users\\f-eli\\onedrive\\\u00E1rea de trabalho\\movieapp\\mvvm\\view\\genreview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{C02DD725-5731-4874-89F9-C066B901FC5E}|MovieApp.csproj|solutionrelative:mvvm\\view\\genreview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C02DD725-5731-4874-89F9-C066B901FC5E}|MovieApp.csproj|c:\\users\\f-eli\\onedrive\\\u00E1rea de trabalho\\movieapp\\mvvm\\view\\controls\\genreselection.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{C02DD725-5731-4874-89F9-C066B901FC5E}|MovieApp.csproj|solutionrelative:mvvm\\view\\controls\\genreselection.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C02DD725-5731-4874-89F9-C066B901FC5E}|MovieApp.csproj|c:\\users\\f-eli\\onedrive\\\u00E1rea de trabalho\\movieapp\\mvvm\\view\\homeview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{C02DD725-5731-4874-89F9-C066B901FC5E}|MovieApp.csproj|solutionrelative:mvvm\\view\\homeview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C02DD725-5731-4874-89F9-C066B901FC5E}|MovieApp.csproj|c:\\users\\f-eli\\onedrive\\\u00E1rea de trabalho\\movieapp\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{C02DD725-5731-4874-89F9-C066B901FC5E}|MovieApp.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{C02DD725-5731-4874-89F9-C066B901FC5E}|MovieApp.csproj|c:\\users\\f-eli\\onedrive\\\u00E1rea de trabalho\\movieapp\\mvvm\\viewmodel\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C02DD725-5731-4874-89F9-C066B901FC5E}|MovieApp.csproj|solutionrelative:mvvm\\viewmodel\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,54 +14,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "HomeView.xaml",
-              "DocumentMoniker": "C:\\Users\\f-eli\\OneDrive\\\u00C1rea de Trabalho\\MovieApp\\MVVM\\View\\HomeView.xaml",
-              "RelativeDocumentMoniker": "MVVM\\View\\HomeView.xaml",
-              "ToolTip": "C:\\Users\\f-eli\\OneDrive\\\u00C1rea de Trabalho\\MovieApp\\MVVM\\View\\HomeView.xaml",
-              "RelativeToolTip": "MVVM\\View\\HomeView.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-04-16T11:57:18.78Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "App.xaml",
-              "DocumentMoniker": "C:\\Users\\f-eli\\OneDrive\\\u00C1rea de Trabalho\\MovieApp\\App.xaml",
-              "RelativeDocumentMoniker": "App.xaml",
-              "ToolTip": "C:\\Users\\f-eli\\OneDrive\\\u00C1rea de Trabalho\\MovieApp\\App.xaml",
-              "RelativeToolTip": "App.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-04-16T11:12:22.721Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GenreSelection.xaml",
-              "DocumentMoniker": "C:\\Users\\f-eli\\OneDrive\\\u00C1rea de Trabalho\\MovieApp\\MVVM\\View\\Controls\\GenreSelection.xaml",
-              "RelativeDocumentMoniker": "MVVM\\View\\Controls\\GenreSelection.xaml",
-              "ToolTip": "C:\\Users\\f-eli\\OneDrive\\\u00C1rea de Trabalho\\MovieApp\\MVVM\\View\\Controls\\GenreSelection.xaml",
-              "RelativeToolTip": "MVVM\\View\\Controls\\GenreSelection.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-04-16T11:10:35.38Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "GenreView.xaml",
-              "DocumentMoniker": "C:\\Users\\f-eli\\OneDrive\\\u00C1rea de Trabalho\\MovieApp\\MVVM\\View\\GenreView.xaml",
-              "RelativeDocumentMoniker": "MVVM\\View\\GenreView.xaml",
-              "ToolTip": "C:\\Users\\f-eli\\OneDrive\\\u00C1rea de Trabalho\\MovieApp\\MVVM\\View\\GenreView.xaml",
-              "RelativeToolTip": "MVVM\\View\\GenreView.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-04-16T11:02:22.692Z",
+              "Title": "MainViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\f-eli\\OneDrive\\\u00C1rea de Trabalho\\MovieApp\\MVVM\\ViewModel\\MainViewModel.cs",
+              "RelativeDocumentMoniker": "MVVM\\ViewModel\\MainViewModel.cs",
+              "ToolTip": "C:\\Users\\f-eli\\OneDrive\\\u00C1rea de Trabalho\\MovieApp\\MVVM\\ViewModel\\MainViewModel.cs",
+              "RelativeToolTip": "MVVM\\ViewModel\\MainViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-16T19:26:28.302Z",
               "EditorCaption": ""
             }
           ]

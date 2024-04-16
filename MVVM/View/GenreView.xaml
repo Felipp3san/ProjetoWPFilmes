@@ -33,28 +33,35 @@
             <ItemsControl ItemsSource="{Binding MovieListByGenre}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Border CornerRadius="10" Background="#464646" 
-                                BorderThickness="0" Width="180" Margin="0,0,20,15">
-                            <StackPanel>
-                                <Button Style="{StaticResource ButtonTheme}" Command="{Binding DataContext.SearchMovieCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" 
-                                        CommandParameter="{Binding Title}" Background="Transparent" BorderThickness="0"
-                                        VerticalContentAlignment="Center">
-                                    <Border Width="180" Height="273" Background="Black" VerticalAlignment="Top">
-                                        <Border.Clip>
-                                            <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,178,273"/>
-                                        </Border.Clip>
-                                        <Image Source="{Binding PosterPath}" Panel.ZIndex="-1" Stretch="Fill"/>
-                                    </Border>
-                                </Button>
-                                <TextBlock Text="{Binding Title}" Width="180" TextWrapping="Wrap" FontWeight="Bold" FontSize="20" 
-                                               Foreground="{StaticResource MovieTitle.Foreground}" Margin="0,10,0,0" Padding="10,0,10,10"/>
-                                <TextBlock Text="{Binding ReleaseDate, StringFormat='{}{0:dd MMMM yyyy}'}" FontSize="16" 
-                                               Foreground="{StaticResource MovieOverview.Foreground}" Padding="10,0,10,10" VerticalAlignment="Bottom"/>
-                            </StackPanel>
-                            <Border.Effect>
-                                <DropShadowEffect BlurRadius="6" Direction="-60" RenderingBias="Quality" ShadowDepth="3"/>
-                            </Border.Effect>
-                        </Border>
+                        <Grid>
+                            <Border CornerRadius="10" Background="black" 
+                                    BorderThickness="0" Width="180" Margin="0,0,20,15">
+                                <Border.Effect>
+                                    <DropShadowEffect BlurRadius="10" Direction="-60"
+                                                      RenderingBias="Quality" ShadowDepth="5"/>
+                                </Border.Effect>
+                            </Border>
+                            
+                            <Border CornerRadius="10" Background="#464646" 
+                                    BorderThickness="0" Width="180" Margin="0,0,20,15">
+                                <StackPanel>
+                                    <Button Style="{StaticResource ButtonTheme}" Command="{Binding DataContext.SearchMovieCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" 
+                                            CommandParameter="{Binding Title}" Background="Transparent" BorderThickness="0"
+                                            VerticalContentAlignment="Center">
+                                        <Border Width="180" Height="273" Background="Black" VerticalAlignment="Top">
+                                            <Border.Clip>
+                                                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,178,273"/>
+                                            </Border.Clip>
+                                            <Image Source="{Binding PosterPath}" Panel.ZIndex="-1" Stretch="Fill"/>
+                                        </Border>
+                                    </Button>
+                                    <TextBlock Text="{Binding Title}" Width="180" TextWrapping="Wrap" FontWeight="Bold" FontSize="20" 
+                                                   Foreground="{StaticResource MovieTitle.Foreground}" Margin="0,10,0,0" Padding="10,0,10,10"/>
+                                    <TextBlock Text="{Binding ReleaseDate, StringFormat='{}{0:dd MMMM yyyy}'}" FontSize="16" 
+                                                   Foreground="{StaticResource MovieOverview.Foreground}" Padding="10,0,10,10" VerticalAlignment="Bottom"/>
+                                </StackPanel>
+                            </Border>
+                        </Grid> 
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
                 <ItemsControl.ItemsPanel>

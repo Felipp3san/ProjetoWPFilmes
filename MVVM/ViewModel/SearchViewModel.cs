@@ -9,6 +9,7 @@ namespace MovieApp.MVVM.ViewModel
 		private CastContext castContext;
 		private MovieProviderContext movieProviderContext;
 
+		// Armazena o filme que está sendo exibido na página de pesquisa (após a pesquisa ser finalizada).
 		private Movie? selectedMovie;
 
 		public Movie? SelectedMovie 
@@ -21,6 +22,7 @@ namespace MovieApp.MVVM.ViewModel
 			}
 		}
 
+		// Construtor vazio, utilizado quando secção de pesquisa é acessada sem que a caixa de pesquisa esteja preenchida.
 		public SearchViewModel()
 		{
 			movieContext = new MovieContext();
@@ -30,6 +32,7 @@ namespace MovieApp.MVVM.ViewModel
             InitializeMovie();
         }
 
+		// Construtor com parametro, utilizado quando secção de pesquisa é acessada a partir da caixa de pesquisa, preenchida com o nome de um filme.
         public SearchViewModel(string movieName)
 		{
 			movieContext = new MovieContext();
@@ -39,6 +42,12 @@ namespace MovieApp.MVVM.ViewModel
 			InitializeMovie(movieName).GetAwaiter();
 		}
 
+		/// <summary>
+		/// Busca o filme mais popular da DB e repassa para a propriedade SelectedMovie 
+		/// para que a secção de pesquisa não seja inicializada vazia.
+		/// Método utilizado quando a secção de pesquisa é acessada a partir do menu lateral.
+		/// </summary>
+		/// <returns></returns>
 		private async Task InitializeMovie()
 		{
             var popularMovies = await movieContext.GetPopularMovies();
@@ -53,6 +62,12 @@ namespace MovieApp.MVVM.ViewModel
             }
         }
 
+		/// <summary>
+		/// Busca o filme introduzido na caixa de pesquisa e repassa para a propriedade SelectedMovie 
+		/// para que seja exibido na página de pesquisa.
+		/// Método utilizado quando a secção de pesquisa é acessada a partir da caixa de pesquisa.
+		/// </summary>
+		/// <returns></returns>
 		private async Task InitializeMovie(string movieName)
 		{
 			int movieId = await movieContext.GetMovieId(movieName);
