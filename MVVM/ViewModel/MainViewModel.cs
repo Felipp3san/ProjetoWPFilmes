@@ -9,32 +9,18 @@ namespace MovieApp.MVVM.ViewModel
     {
 		private readonly NavigationStore _navigationStore;
 
-		// Propriedade utilizada para atribuir a View atual ao ContentControl, inicializado com 'Home' ao iniciar aplicação.
+		// Atribui a View atual ao ContentControl, inicializado com 'Home' ao iniciar a aplicação.
 		public ViewModelBase CurrentViewModel => _navigationStore.CurrentViewModel;
-
-		// Propriedade utilizada para alterar seleção do menu lateral caso a secção
-		// de pesquisa seja acessada a partir da caixa de pesquisa ou ao clicar em um filme.
-		private bool isChecked = false;
-		public bool IsChecked 
-		{
-			get { return isChecked; }
-			set 
-			{ 
-				isChecked = value;
-				OnPropertyChanged();
-			}
-		}
 
 		// Propriedades responsáveis por controlar o menu lateral e o botão que encerra a aplicação. 
 		public ICommand NavigateHomeCommand { get; }
 		public ICommand NavigatePopularCommand { get; }
 		public ICommand NavigateGenreCommand { get; }
-		public ICommand NavigateSearchCommand { get; }
 		public ICommand NavigateSearchBarCommand { get; }
 		public ICommand CloseButtonCommand { get; }
 
 
-		// Propriedade utilizada para capturar o nome do filme a ser pesquisado.
+		// Utilizada para armazenar o nome do filme a ser pesquisado.
 		private string movieName = string.Empty;
 		public string MovieName
 		{
@@ -57,7 +43,6 @@ namespace MovieApp.MVVM.ViewModel
 			NavigateHomeCommand = new NavigateHomeCommand(navigationStore);
 			NavigatePopularCommand = new NavigatePopularCommand(navigationStore);
 			NavigateGenreCommand = new NavigateGenreCommand(navigationStore);
-			NavigateSearchCommand = new NavigateSearchCommand(navigationStore);
 			NavigateSearchBarCommand = new NavigateSearchBarCommand(navigationStore, () => MovieName);
 			CloseButtonCommand = new CloseCommand();
 
@@ -74,10 +59,6 @@ namespace MovieApp.MVVM.ViewModel
         {
 			// Limpa a caixa de pesquisa de filmes
 			MovieName = string.Empty;
-
-			// Sempre que um filme for pesquisado, a seleção do menu vai para a aba 'Pesquisar' 			
-			if(CurrentViewModel.GetType() == typeof(SearchViewModel))
-				IsChecked = true;
 
 			// Envia uma notificação para view modificar a apresentação do ContentControl
             OnPropertyChanged(nameof(CurrentViewModel));

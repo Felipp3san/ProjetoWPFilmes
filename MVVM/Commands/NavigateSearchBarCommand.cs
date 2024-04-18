@@ -25,11 +25,11 @@ namespace MovieApp.MVVM.Commands
 
             if (string.IsNullOrEmpty(movieName))
             {
-                _navigationStore.CurrentViewModel = new SearchViewModel();
+                            
             }
             else
             {
-                _navigationStore.CurrentViewModel = new SearchViewModel(movieName);
+                _navigationStore.CurrentViewModel = new SearchListViewModel(_navigationStore, movieName);
             }
         }
     }

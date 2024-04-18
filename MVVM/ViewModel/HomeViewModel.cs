@@ -26,7 +26,7 @@ namespace MovieApp.MVVM.ViewModel
             }
         }
 
-        // Armazena a lista de filmes (adicionados recentemente a DB), que está sendo exibida na HomeView. 
+        // Armazena a lista de filmes (adicionados recentemente a DB), que será exibida na HomeView. 
         private List<Movie>? latestMovieList;
         public List<Movie>? LatestMovieList 
         {

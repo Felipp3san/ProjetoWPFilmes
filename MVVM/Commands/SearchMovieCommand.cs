@@ -14,8 +14,8 @@ namespace MovieApp.MVVM.Commands
 
         public override void Execute(object? parameter)
         {
-            string movieName = (string) parameter;
-            _navigationStore.CurrentViewModel = new SearchViewModel(movieName);
+            int movieId = (int)parameter;
+            _navigationStore.CurrentViewModel = new SearchViewModel(movieId);
         }
     }
 }

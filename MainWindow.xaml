@@ -51,10 +51,6 @@
                              Content="Por genero" Height="50" FontSize="20"
                              Foreground="#FFFFFF" Style="{StaticResource MenuButtonTheme}"/>
 
-                <RadioButton Command="{Binding NavigateSearchCommand}"
-                             Content="Pesquisar" Height="50" FontSize="20"
-                             Foreground="#FFFFFF" Style="{StaticResource MenuButtonTheme}"
-                             IsChecked="{Binding IsChecked}"/>
             </StackPanel>
 
 
@@ -68,7 +64,7 @@
 
                     <Button Command="{Binding NavigateSearchBarCommand}"
                             Style="{StaticResource ButtonTheme}" Width="200" Height="40" 
-                            Content="Procurar filme" FontSize="20"/>
+                            Content="Pesquisar filme" FontSize="20"/>
                 </StackPanel>
 
                 <Button Command="{Binding CloseButtonCommand}" Style="{StaticResource CloseButtonTheme}"

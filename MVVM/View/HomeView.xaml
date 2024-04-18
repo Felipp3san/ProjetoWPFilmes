@@ -32,7 +32,7 @@
                                 </Border>
                                 <!-- Border com a imagem e o recorte, sem o efeito de sombra -->
                                 <Button Style="{StaticResource ButtonTheme}" Command="{Binding DataContext.SearchMovieCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" 
-                                        CommandParameter="{Binding Title}" Background="Transparent" BorderThickness="0"
+                                        CommandParameter="{Binding Id}" Background="Transparent" BorderThickness="0"
                                         VerticalContentAlignment="Center" Margin="0,0,15,0">
                                     <Border Width="200" Height="300" Background="Transparent">
                                         <Image Source="{Binding PosterPath}" Panel.ZIndex="-1" Stretch="Fill"/>

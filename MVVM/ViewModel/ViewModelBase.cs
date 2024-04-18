@@ -10,7 +10,7 @@ namespace MovieApp.MVVM.ViewModel
         /// <summary>
         /// Notifica mudanças dos valores de propriedades as Views.
         /// </summary>
-        /// <param name="property"></param>
+        /// <param name="property">Nome da propriedade que invocou o evento.</param>
         protected void OnPropertyChanged([CallerMemberName] string? property = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
