@@ -31,7 +31,7 @@
                                     </Border.Effect>
                                 </Border>
                                 <!-- Border com a imagem e o recorte, sem o efeito de sombra -->
-                                <Button Style="{StaticResource ButtonTheme}" Command="{Binding DataContext.SearchMovieCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" 
+                                <Button Style="{StaticResource ButtonTheme}" Command="{Binding DataContext.MovieDetailsCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" 
                                         CommandParameter="{Binding Id}" Background="Transparent" BorderThickness="0"
                                         VerticalContentAlignment="Center" Margin="0,0,15,0">
                                     <Border Width="200" Height="300" Background="Transparent">
@@ -70,8 +70,8 @@
                                                           RenderingBias="Quality" ShadowDepth="5"/>
                                     </Border.Effect>
                                 </Border>
-                                <Button Style="{StaticResource ButtonTheme}" Command="{Binding DataContext.SearchMovieCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" 
-                                        CommandParameter="{Binding Title}" Background="Transparent" BorderThickness="0"
+                                <Button Style="{StaticResource ButtonTheme}" Command="{Binding DataContext.MovieDetailsCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" 
+                                        CommandParameter="{Binding Id}" Background="Transparent" BorderThickness="0"
                                         VerticalContentAlignment="Center" Margin="0,0,10,0">
                                     <Border Width="100" Height="150" Background="Black">
                                         <Border.Clip>

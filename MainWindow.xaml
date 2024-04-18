@@ -21,8 +21,8 @@
             <DropShadowEffect BlurRadius="15" Direction="-90"
                               RenderingBias="Quality" ShadowDepth="2"/>
         </Border.Effect>
-        <Grid>
 
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="75"/>
                 <RowDefinition/>
@@ -43,16 +43,16 @@
                              Foreground="#FFFFFF" Style="{StaticResource MenuButtonTheme}"
                              IsChecked="True"/>
 
-                <RadioButton Command="{Binding NavigatePopularCommand}"
-                             Content="Em alta" Height="50" FontSize="20"
-                             Foreground="#FFFFFF" Style="{StaticResource MenuButtonTheme}"/>
-
                 <RadioButton Command="{Binding NavigateGenreCommand}"
                              Content="Por genero" Height="50" FontSize="20"
                              Foreground="#FFFFFF" Style="{StaticResource MenuButtonTheme}"/>
 
             </StackPanel>
 
+            <Button Grid.Row="1" Style="{StaticResource ReturnButtonTheme}" Command="{Binding ReturnCommand}" 
+                    VerticalAlignment="Bottom" Background="Transparent"
+                    BorderThickness="0" Content="Retornar" Height="50" FontSize="20"  
+                    Foreground="#FFFFFF"/>
 
             <Grid Grid.Column="1">
                 <Border Background="#222222" CornerRadius="0,10,0,0"/>
@@ -62,7 +62,7 @@
                     <TextBox FontSize="20" Margin="20,0,20,0" Style="{StaticResource TextBoxTheme}"
                              VerticalContentAlignment="Center" HorizontalAlignment="Left"/>
 
-                    <Button Command="{Binding NavigateSearchBarCommand}"
+                    <Button Command="{Binding NavigateSearchCommand}"
                             Style="{StaticResource ButtonTheme}" Width="200" Height="40" 
                             Content="Pesquisar filme" FontSize="20"/>
                 </StackPanel>

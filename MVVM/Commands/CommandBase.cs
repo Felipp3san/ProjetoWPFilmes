@@ -6,7 +6,7 @@ namespace MovieApp.MVVM.Commands
     {
         public event EventHandler? CanExecuteChanged;
 
-        public bool CanExecute(object? parameter) => true;
+        public virtual bool CanExecute(object? parameter) => true;
 
         public abstract void Execute(object? parameter);
 

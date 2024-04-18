@@ -6,6 +6,13 @@ namespace MovieApp.MVVM.Commands
     public class SearchMovieCommand : CommandBase
     {
         private readonly NavigationStore _navigationStore;
+        private readonly Func<string> _getMovieName;
+
+        public SearchMovieCommand(NavigationStore navigationStore, Func<string> getMovieName)
+        {
+            _navigationStore = navigationStore;
+            _getMovieName = getMovieName;
+        }
 
         public SearchMovieCommand(NavigationStore navigationStore)
         {
@@ -14,8 +21,12 @@ namespace MovieApp.MVVM.Commands
 
         public override void Execute(object? parameter)
         {
-            int movieId = (int)parameter;
-            _navigationStore.CurrentViewModel = new SearchViewModel(movieId);
+            string movieName = _getMovieName();
+
+            if (!string.IsNullOrEmpty(movieName))
+            {
+                _navigationStore.CurrentViewModel = new SearchViewModel(_navigationStore, _navigationStore.CurrentViewModel, movieName);
+            }
         }
     }
 }

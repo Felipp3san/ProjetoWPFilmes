@@ -13,26 +13,23 @@
                 <ResourceDictionary Source="Theme/CloseButtonTheme.xaml"/>
                 <ResourceDictionary Source="Theme/ButtonTheme.xaml"/>
                 <ResourceDictionary Source="Theme/ScrollbarTheme.xaml"/>
+                <ResourceDictionary Source="Theme/ReturnButtonTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
                 <view:HomeView/>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type viewModel:PopularViewModel}">
-                <view:PopularView/>
-            </DataTemplate>
-
             <DataTemplate DataType="{x:Type viewModel:GenreViewModel}">
                 <view:GenreView/>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type viewModel:SearchViewModel}">
-                <view:SearchView/>
+            <DataTemplate DataType="{x:Type viewModel:DetailsViewModel}">
+                <view:DetailsView/>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type viewModel:SearchListViewModel}">
-                <view:SearchListView/>
+            <DataTemplate DataType="{x:Type viewModel:SearchViewModel}">
+                <view:SearchView/>
             </DataTemplate>
 
         </ResourceDictionary>

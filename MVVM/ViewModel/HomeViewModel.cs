@@ -12,7 +12,7 @@ namespace MovieApp.MVVM.ViewModel
         private MovieContext movieContext;
 
         // Comando responsável por chamar a página de pesquisa a partir do filme que foi clicado.
-        public ICommand SearchMovieCommand { get; set; }
+        public ICommand MovieDetailsCommand { get; set; }
 
         // Armazena a lista de filmes (em exibição nos cinemas), que está sendo exibida na HomeView. 
         private List<Movie>? theaterMovieList;
@@ -43,7 +43,7 @@ namespace MovieApp.MVVM.ViewModel
             _navigationStore = navigationStore;
             movieContext = new MovieContext();
 
-            SearchMovieCommand = new SearchMovieCommand(_navigationStore);
+            MovieDetailsCommand = new NavigateDetailsCommand(_navigationStore);
 
             InitializeTheaterMovieList().GetAwaiter();
             InitializeLatestMovies().GetAwaiter();

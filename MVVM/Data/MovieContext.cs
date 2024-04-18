@@ -32,7 +32,7 @@ namespace MovieApp.MVVM.Data
 
             List<Movie> movies = new List<Movie>();
 
-            if (response.Content != null)
+            if (response.IsSuccessful)
             {
                 var deserializedJson = JsonConvert.DeserializeObject<dynamic>(response.Content);
 
@@ -42,15 +42,19 @@ namespace MovieApp.MVVM.Data
                     {
                         if (movie["poster_path"] != null)
                         {
-                            movies.Add(new Movie
+                            try
                             {
-                                Id = movie["id"],
-                                Title = movie["title"],
-                                OriginalTitle = movie["original_title"],
-                                Overview = movie["overview"],
-                                ReleaseDate = movie["release_date"],
-                                PosterPath = string.Join("", [Image.BaseUrl, imgSize, movie["poster_path"]])
-                            });
+                                movies.Add(new Movie
+                                {
+                                    Id = movie["id"],
+                                    Title = movie["title"],
+                                    OriginalTitle = movie["original_title"],
+                                    Overview = movie["overview"],
+                                    ReleaseDate = movie["release_date"],
+                                    PosterPath = string.Join("", [Image.BaseUrl, imgSize, movie["poster_path"]])
+                                });
+                            }
+                            catch { }
                         }
                     }
                 }
@@ -82,16 +86,20 @@ namespace MovieApp.MVVM.Data
 
                 if (deserializedJson != null)
                 {
-                    movie = new Movie
+                    try
                     {
-                        Id = deserializedJson["id"],
-                        Title = deserializedJson["title"],
-                        Overview = deserializedJson["overview"],
-                        ReleaseDate = deserializedJson["release_date"],
-                        PosterPath = string.Join("", [Image.BaseUrl, imgSize, deserializedJson["poster_path"]])
-                    };
+                        movie = new Movie
+                        {
+                            Id = deserializedJson["id"],
+                            Title = deserializedJson["title"],
+                            Overview = deserializedJson["overview"],
+                            ReleaseDate = deserializedJson["release_date"],
+                            PosterPath = string.Join("", [Image.BaseUrl, imgSize, deserializedJson["poster_path"]])
+                        };
 
-                    movie.ProductionCompanies = GetProductionCompanies(deserializedJson);
+                        movie.ProductionCompanies = GetProductionCompanies(deserializedJson);
+                    }
+                    catch{}
                 }
             }
 
@@ -117,12 +125,16 @@ namespace MovieApp.MVVM.Data
                 {
                     if (company["logo_path"] != null)
                     {
-                        productionCompanies.Add(new ProductionCompany
+                        try
                         {
-                            Id = company["id"],
-                            Name = company["name"],
-                            LogoPath = string.Join("", [Image.BaseUrl, Image.LogoSize.W154, company["logo_path"]])
-                        });
+                            productionCompanies.Add(new ProductionCompany
+                            {
+                                Id = company["id"],
+                                Name = company["name"],
+                                LogoPath = string.Join("", [Image.BaseUrl, Image.LogoSize.W154, company["logo_path"]])
+                            });
+                        }
+                        catch{}
                     }
                 }
             }
@@ -186,7 +198,7 @@ namespace MovieApp.MVVM.Data
         /// <returns>Lista de filmes filtrada de acordo com parametros da URI.</returns>
         public async Task<List<Movie>?> GetLatestMovies()
         {
-            var uri = "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=PT&page=1&primary_release_date.lte=2024-04-05&region=PT&sort_by=primary_release_date.desc";
+            var uri = "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=pt-PT&page=1&primary_release_date.lte=2024-04-05&region=PT&sort_by=primary_release_date.desc";
             var posterSize = Image.PosterSize.W185;
 
             return await GetMovies(uri, posterSize);

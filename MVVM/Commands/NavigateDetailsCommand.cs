@@ -3,18 +3,20 @@ using MovieApp.MVVM.ViewModel;
 
 namespace MovieApp.MVVM.Commands
 {
-    public class NavigatePopularCommand : CommandBase
+    public class NavigateDetailsCommand : CommandBase
     {
         private readonly NavigationStore _navigationStore;
 
-        public NavigatePopularCommand(NavigationStore navigationStore)
+        public NavigateDetailsCommand(NavigationStore navigationStore)
         {
             _navigationStore = navigationStore;
         }
 
         public override void Execute(object? parameter)
         {
-            _navigationStore.CurrentViewModel = new PopularViewModel();
+            int movieId = (int)parameter;
+
+            _navigationStore.CurrentViewModel = new DetailsViewModel(movieId, _navigationStore.CurrentViewModel);
         }
     }
 }

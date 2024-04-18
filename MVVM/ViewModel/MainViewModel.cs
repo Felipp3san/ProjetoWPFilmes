@@ -16,7 +16,8 @@ namespace MovieApp.MVVM.ViewModel
 		public ICommand NavigateHomeCommand { get; }
 		public ICommand NavigatePopularCommand { get; }
 		public ICommand NavigateGenreCommand { get; }
-		public ICommand NavigateSearchBarCommand { get; }
+		public ICommand NavigateSearchCommand { get; }
+		public ICommand ReturnCommand{ get; }
 		public ICommand CloseButtonCommand { get; }
 
 
@@ -41,9 +42,9 @@ namespace MovieApp.MVVM.ViewModel
 
 			// Inicializaão das propriedades dos botões de navegação
 			NavigateHomeCommand = new NavigateHomeCommand(navigationStore);
-			NavigatePopularCommand = new NavigatePopularCommand(navigationStore);
 			NavigateGenreCommand = new NavigateGenreCommand(navigationStore);
-			NavigateSearchBarCommand = new NavigateSearchBarCommand(navigationStore, () => MovieName);
+            NavigateSearchCommand = new SearchMovieCommand(navigationStore, () => MovieName);
+			ReturnCommand = new ReturnCommand(navigationStore);
 			CloseButtonCommand = new CloseCommand();
 
 			// Inicializa a classe estática 'Image' com os dados necessários para se utilizar na aplicação durante sua execução.

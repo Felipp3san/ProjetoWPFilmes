@@ -8,6 +8,8 @@ namespace MovieApp.MVVM.ViewModel
 {
     internal class GenreViewModel : ViewModelBase
     {
+        public event Action GenreSelectionChanged;
+
         private readonly NavigationStore _navigationStore;
         GenreContext genreContext;
         MovieContext movieContext;
@@ -17,7 +19,7 @@ namespace MovieApp.MVVM.ViewModel
 
         // Ao clicar em algum filme da lista, redireciona para a página de pesquisa
         // com os detalhes do respetivo filme.
-        public ICommand SearchMovieCommand { get; set; }
+        public ICommand MovieDetailsCommand { get; set; }
 
         // Armazena a lista de generos que está sendo exibida na comboBox
         // de seleção de generos.
@@ -42,6 +44,7 @@ namespace MovieApp.MVVM.ViewModel
                 selectedGenre = value;
                 PageNumber = 1;
                 OnPropertyChanged();
+                OnGenreSelectionChanged();
             }
         }
 
@@ -70,21 +73,27 @@ namespace MovieApp.MVVM.ViewModel
             }
         }
 
-        public GenreViewModel(NavigationStore navigationStore)
+        public GenreViewModel(NavigationStore navigationStore, ViewModelBase previousViewModel)
         {
             _navigationStore = navigationStore;
+            PreviousViewModel = previousViewModel;
 
             genreContext = new GenreContext();
             movieContext = new MovieContext();
-            NextPageCommand = new NextPageCommand(); 
+            NextPageCommand = new NextPageCommand(this); 
 
             NextPageCommand.CanExecute(SelectedGenre != 0);
             ((NextPageCommand) NextPageCommand).PageNumberChanged += OnPageNumberChanged;
 
-            SearchMovieCommand = new SearchMovieCommand(_navigationStore);
+            MovieDetailsCommand = new NavigateDetailsCommand(_navigationStore);
 
             InitializeGenreList().GetAwaiter();
             InitializeMovies().GetAwaiter();
+        }
+
+        private void OnGenreSelectionChanged()
+        {
+            GenreSelectionChanged?.Invoke();
         }
 
         /// <summary>

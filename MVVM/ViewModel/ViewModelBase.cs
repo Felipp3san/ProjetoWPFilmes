@@ -5,6 +5,8 @@ namespace MovieApp.MVVM.ViewModel
 {
     public class ViewModelBase : INotifyPropertyChanged
     {
+        public ViewModelBase PreviousViewModel { get; internal set; }
+
         public event PropertyChangedEventHandler? PropertyChanged;
 
         /// <summary>

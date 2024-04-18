@@ -1,57 +1,49 @@
 ﻿using MovieApp.MVVM.Commands;
 using MovieApp.MVVM.Data;
 using MovieApp.MVVM.Model;
+using MovieApp.MVVM.Stores;
 using System.Windows.Input;
 
 namespace MovieApp.MVVM.ViewModel
 {
     internal class SearchViewModel : ViewModelBase
     {
-		private MovieContext movieContext;
-		private CastContext castContext;
-		private MovieProviderContext movieProviderContext;
+        private readonly NavigationStore _navigationStore;
+        private readonly MovieContext _movieContext;
 
-		public ICommand ProviderCommand { get; set; }
+        public ICommand MovieDetailsCommand { get; set; }
 
-		// Armazena o filme que está sendo exibido na página de pesquisa (após a pesquisa ser finalizada).
-		private Movie? selectedMovie;
-		public Movie? SelectedMovie 
+        private List<Movie> searchedMovies;
+		public List<Movie> SearchedMovies 
 		{
-			get { return selectedMovie; }
-			set
-			{
-				selectedMovie = value;
-				OnPropertyChanged();
+			get { return searchedMovies; }
+			set 
+			{ 
+				searchedMovies = value;
+                OnPropertyChanged();
 			}
 		}
 
-        public SearchViewModel(int movieId)
+		public SearchViewModel(NavigationStore navigationStore)
 		{
-			movieContext = new MovieContext();
-			castContext = new CastContext();
-			movieProviderContext = new MovieProviderContext();
-
-            ProviderCommand = new GetProviderPageCommand();
-
-            SearchMovieById(movieId).GetAwaiter();
+			_navigationStore = navigationStore;
+			_movieContext = new MovieContext();
 		}
 
-		/// <summary>
-		/// Busca o filme seleciona na lista de pesquisa e repassa para a propriedade SelectedMovie 
-		/// para que seja exibido na página de pesquisa.
-		/// Método utilizado quando a secção de pesquisa é acessada a partir da caixa de pesquisa.
-		/// </summary>
-		/// <returns></returns>
-		private async Task SearchMovieById(int movieId)
+		public SearchViewModel(NavigationStore navigationStore, ViewModelBase previousViewModel ,string movieName)
 		{
-            Movie? movie = await movieContext.GetMovieById(movieId);
+			_navigationStore = navigationStore;	
+			_movieContext = new MovieContext();
 
-            if (movie != null)
-            {
-                movie.Cast = await castContext.GetCastByMovieId(movieId);
-                movie.Providers = await movieProviderContext.GetProvidersByMovieId(movieId);
-                SelectedMovie = movie;
-            }
+			PreviousViewModel = previousViewModel;
+			MovieDetailsCommand = new NavigateDetailsCommand(navigationStore);
+
+			GetMoviesByName(movieName).GetAwaiter();
 		}
-    }
+
+		private async Task GetMoviesByName(string movieName)
+		{
+            SearchedMovies = await _movieContext.GetMoviesByName(movieName);
+        }
+	}
 }

@@ -5,9 +5,9 @@ namespace MovieApp.MVVM.View
     /// <summary>
     /// Interação lógica para SearchView.xam
     /// </summary>
-    public partial class SearchView : UserControl
+    public partial class DetailsView : UserControl
     {
-        public SearchView()
+        public DetailsView()
         {
             InitializeComponent();
         }

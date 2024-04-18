@@ -1,11 +1,11 @@
 ﻿using MovieApp.MVVM.ViewModel;
+using System.ComponentModel;
 
 namespace MovieApp.MVVM.Stores
 {
-    public class NavigationStore
+    public class NavigationStore 
     {
         public event Action CurrentViewModelChanged;
-
 
         // Armazena a View selecionada que será exibida no ContentControl do MainView. 
         private ViewModelBase currentViewModel;
@@ -25,6 +25,5 @@ namespace MovieApp.MVVM.Stores
         {
             CurrentViewModelChanged?.Invoke();
         }
-
     }
 }

@@ -51,7 +51,7 @@
                                         <RowDefinition/>
                                     </Grid.RowDefinitions>
 
-                                    <Button Style="{StaticResource ButtonTheme}" Command="{Binding DataContext.SearchMovieCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" 
+                                    <Button Style="{StaticResource ButtonTheme}" Command="{Binding DataContext.MovieDetailsCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" 
                                             CommandParameter="{Binding Id}" Background="Transparent" BorderThickness="0"
                                             VerticalContentAlignment="Center">
                                         <Border Width="180" Height="273" Background="Black" VerticalAlignment="Top">
