@@ -41,11 +41,12 @@
                 <RadioButton Command="{Binding NavigateHomeCommand}"
                              Content="Home" Height="50" FontSize="20"
                              Foreground="#FFFFFF" Style="{StaticResource MenuButtonTheme}"
-                             IsChecked="True"/>
+                             IsChecked="{Binding IsHomeChecked}"/>
 
                 <RadioButton Command="{Binding NavigateGenreCommand}"
                              Content="Por genero" Height="50" FontSize="20"
-                             Foreground="#FFFFFF" Style="{StaticResource MenuButtonTheme}"/>
+                             Foreground="#FFFFFF" Style="{StaticResource MenuButtonTheme}"
+                             IsChecked="{Binding IsGenreChecked}"/>
 
             </StackPanel>
 

@@ -20,9 +20,34 @@ namespace MovieApp.MVVM.ViewModel
 		public ICommand ReturnCommand{ get; }
 		public ICommand CloseButtonCommand { get; }
 
+		// Propriedades responsáveis por gerenciar marcação de menu ao utilizar o botao return
 
-		// Utilizada para armazenar o nome do filme a ser pesquisado.
-		private string movieName = string.Empty;
+		private bool isHomeChecked = true;
+
+		public bool IsHomeChecked 
+		{
+			get { return isHomeChecked; }
+			set 
+			{
+				isHomeChecked = value;
+				OnPropertyChanged();
+			}
+		}
+
+		private bool isGenreChecked;
+
+        public bool IsGenreChecked
+        {
+            get { return isGenreChecked; }
+            set
+            {
+                isGenreChecked = value;
+                OnPropertyChanged();
+            }
+        }
+
+        // Utilizada para armazenar o nome do filme a ser pesquisado.
+        private string movieName = string.Empty;
 		public string MovieName
 		{
 			get { return movieName; }
@@ -61,7 +86,18 @@ namespace MovieApp.MVVM.ViewModel
 			// Limpa a caixa de pesquisa de filmes
 			MovieName = string.Empty;
 
-			// Envia uma notificação para view modificar a apresentação do ContentControl
+			// Modifica a seleção do radioButton
+			if (_navigationStore.CurrentViewModel.GetType() == typeof(HomeViewModel))
+				IsHomeChecked = true;
+			else
+				IsHomeChecked = false;
+
+			if(_navigationStore.CurrentViewModel.GetType() == typeof(GenreViewModel))
+				IsGenreChecked = true;
+            else
+                IsGenreChecked = false;
+
+            // Envia uma notificação para view modificar a apresentação do ContentControl
             OnPropertyChanged(nameof(CurrentViewModel));
 		}
     }

@@ -24,10 +24,17 @@ namespace MovieApp.MVVM.ViewModel
 			}
 		}
 
-		public SearchViewModel(NavigationStore navigationStore)
+		// Controla a visibilidade do textBlock "Filme não encontrado."
+		private string movieNotFoundVisibility;
+
+		public string MovieNotFoundVisibility 
 		{
-			_navigationStore = navigationStore;
-			_movieContext = new MovieContext();
+			get { return movieNotFoundVisibility; }
+			set 
+			{
+				movieNotFoundVisibility = value;
+				OnPropertyChanged();
+			}
 		}
 
 		public SearchViewModel(NavigationStore navigationStore, ViewModelBase previousViewModel ,string movieName)
@@ -44,6 +51,11 @@ namespace MovieApp.MVVM.ViewModel
 		private async Task GetMoviesByName(string movieName)
 		{
             SearchedMovies = await _movieContext.GetMoviesByName(movieName);
+
+            if (SearchedMovies.Count == 0)
+				MovieNotFoundVisibility = "Visible";                
+            else
+				movieNotFoundVisibility = "Hidden";
         }
 	}
 }

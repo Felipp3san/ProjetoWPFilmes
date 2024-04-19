@@ -23,6 +23,10 @@
     </UserControl.Resources>
 
     <Grid>
+        <TextBlock Text="Não foi encontrado nenhum filme com o nome fornecido."
+                   FontSize="25" Foreground="#FFFFFF" TextAlignment="Center"
+                   Visibility="{Binding MovieNotFoundVisibility}"/>
+        
         <ScrollViewer HorizontalScrollBarVisibility="Hidden"
                       VerticalScrollBarVisibility="Auto">
             <ItemsControl ItemsSource="{Binding SearchedMovies}">

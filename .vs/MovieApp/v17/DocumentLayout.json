@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\f-eli\\OneDrive\\\u00C1rea de Trabalho\\MovieApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C02DD725-5731-4874-89F9-C066B901FC5E}|MovieApp.csproj|c:\\users\\f-eli\\onedrive\\\u00E1rea de trabalho\\movieapp\\mvvm\\viewmodel\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C02DD725-5731-4874-89F9-C066B901FC5E}|MovieApp.csproj|solutionrelative:mvvm\\viewmodel\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C02DD725-5731-4874-89F9-C066B901FC5E}|MovieApp.csproj|c:\\users\\f-eli\\onedrive\\\u00E1rea de trabalho\\movieapp\\mvvm\\viewmodel\\searchviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C02DD725-5731-4874-89F9-C066B901FC5E}|MovieApp.csproj|solutionrelative:mvvm\\viewmodel\\searchviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C02DD725-5731-4874-89F9-C066B901FC5E}|MovieApp.csproj|c:\\users\\f-eli\\onedrive\\\u00E1rea de trabalho\\movieapp\\mvvm\\stores\\navigationstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C02DD725-5731-4874-89F9-C066B901FC5E}|MovieApp.csproj|solutionrelative:mvvm\\stores\\navigationstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C02DD725-5731-4874-89F9-C066B901FC5E}|MovieApp.csproj|c:\\users\\f-eli\\onedrive\\\u00E1rea de trabalho\\movieapp\\mvvm\\view\\searchlistview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C02DD725-5731-4874-89F9-C066B901FC5E}|MovieApp.csproj|solutionrelative:mvvm\\view\\searchlistview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,27 +23,26 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MainViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\f-eli\\OneDrive\\\u00C1rea de Trabalho\\MovieApp\\MVVM\\ViewModel\\MainViewModel.cs",
-              "RelativeDocumentMoniker": "MVVM\\ViewModel\\MainViewModel.cs",
-              "ToolTip": "C:\\Users\\f-eli\\OneDrive\\\u00C1rea de Trabalho\\MovieApp\\MVVM\\ViewModel\\MainViewModel.cs",
-              "RelativeToolTip": "MVVM\\ViewModel\\MainViewModel.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAUwAAAAAAAAAAA",
+              "Title": "SearchViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\f-eli\\OneDrive\\\u00C1rea de Trabalho\\MovieApp\\MVVM\\ViewModel\\SearchViewModel.cs",
+              "RelativeDocumentMoniker": "MVVM\\ViewModel\\SearchViewModel.cs",
+              "ToolTip": "C:\\Users\\f-eli\\OneDrive\\\u00C1rea de Trabalho\\MovieApp\\MVVM\\ViewModel\\SearchViewModel.cs",
+              "RelativeToolTip": "MVVM\\ViewModel\\SearchViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADcAAAA3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-18T21:47:39.535Z",
+              "WhenOpened": "2024-04-19T09:44:24.021Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "NavigationStore.cs",
-              "DocumentMoniker": "C:\\Users\\f-eli\\OneDrive\\\u00C1rea de Trabalho\\MovieApp\\MVVM\\Stores\\NavigationStore.cs",
-              "RelativeDocumentMoniker": "MVVM\\Stores\\NavigationStore.cs",
-              "ToolTip": "C:\\Users\\f-eli\\OneDrive\\\u00C1rea de Trabalho\\MovieApp\\MVVM\\Stores\\NavigationStore.cs",
-              "RelativeToolTip": "MVVM\\Stores\\NavigationStore.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-18T21:47:10.911Z",
+              "Title": "SearchListView.xaml",
+              "DocumentMoniker": "C:\\Users\\f-eli\\OneDrive\\\u00C1rea de Trabalho\\MovieApp\\MVVM\\View\\SearchListView.xaml",
+              "RelativeDocumentMoniker": "MVVM\\View\\SearchListView.xaml",
+              "ToolTip": "C:\\Users\\f-eli\\OneDrive\\\u00C1rea de Trabalho\\MovieApp\\MVVM\\View\\SearchListView.xaml",
+              "RelativeToolTip": "MVVM\\View\\SearchListView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-19T09:44:18.021Z",
               "EditorCaption": ""
             }
           ]
